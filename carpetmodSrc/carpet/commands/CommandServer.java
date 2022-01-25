@@ -31,7 +31,7 @@ public class CommandServer extends CommandCarpetBase{
             return Collections.<String>emptyList();
         }
         if (args.length == 1){
-            return getListOfStringsMatchingLastWord(args, CarpetSettings.serverList);
+            return getListOfStringsMatchingLastWord(args, CarpetSettings.serverList.split(","));
         }
         return Collections.<String>emptyList();
     }
