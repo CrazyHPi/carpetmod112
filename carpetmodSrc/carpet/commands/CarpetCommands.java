@@ -50,5 +50,8 @@ public class CarpetCommands {
         // ----- RSMM Start ----- //
         handler.registerCommand(new MeterCommand(CarpetServer.rsmmServer));
         // ----- RSMM End ----- //
+
+        // ===== AZ commands ===== //
+        handler.registerCommand((new CommandServer()));
     }
 }
