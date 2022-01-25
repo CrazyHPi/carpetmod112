@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/passive/EntitySheep.java
++++ ../src-work/minecraft/net/minecraft/entity/passive/EntitySheep.java
+@@ -64,6 +64,9 @@
+         return new float[] {afloat[0] * 0.75F, afloat[1] * 0.75F, afloat[2] * 0.75F};
+     }
+ 
++    //CM
++    public String cm_name() { return "Sheep"; }
++
+     public EntitySheep(World p_i1691_1_)
+     {
+         super(p_i1691_1_);

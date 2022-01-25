@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/passive/EntityAmbientCreature.java
++++ ../src-work/minecraft/net/minecraft/entity/passive/EntityAmbientCreature.java
+@@ -6,6 +6,9 @@
+ 
+ public abstract class EntityAmbientCreature extends EntityLiving implements IAnimals
+ {
++    //CM
++    public String cm_name() { return "Ambient Creature"; }
++
+     public EntityAmbientCreature(World p_i1679_1_)
+     {
+         super(p_i1679_1_);

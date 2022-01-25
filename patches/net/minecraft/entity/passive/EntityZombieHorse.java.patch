@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/passive/EntityZombieHorse.java
++++ ../src-work/minecraft/net/minecraft/entity/passive/EntityZombieHorse.java
+@@ -17,6 +17,9 @@
+ 
+ public class EntityZombieHorse extends AbstractHorse
+ {
++    //CM
++    public String cm_name() { return "Zombie Horse"; }
++
+     public EntityZombieHorse(World p_i47293_1_)
+     {
+         super(p_i47293_1_);

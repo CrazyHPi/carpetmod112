@@ -11,7 +11,17 @@
  public class EntityGuardian extends EntityMob
  {
      private static final DataParameter<Boolean> field_190766_bz = EntityDataManager.<Boolean>func_187226_a(EntityGuardian.class, DataSerializers.field_187198_h);
-@@ -396,6 +400,30 @@
+@@ -50,6 +54,9 @@
+     private boolean field_175480_bp;
+     protected EntityAIWander field_175481_bq;
+ 
++    //CM
++    public String cm_name() { return "Guardian"; }
++
+     public EntityGuardian(World p_i45835_1_)
+     {
+         super(p_i45835_1_);
+@@ -396,6 +403,30 @@
          }
      }
  

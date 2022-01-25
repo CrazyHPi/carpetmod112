@@ -22,6 +22,8 @@ public class PortalCaching {
                     return comp.toArray(new ITextComponent[0]);
                 case "full":
                     return finalReport(world, comp, uncacheCount).toArray(new ITextComponent[0]);
+                case "uncaching":
+                    return finalReport(world, new ArrayList<>(), uncacheCount).toArray(new ITextComponent[0]);
                 default:
                     return null;
             }
@@ -33,20 +35,16 @@ public class PortalCaching {
         for (int i = 0; i < uncacheCount.size(); i++)
         {
             Vec3d p = uncacheCount.get(i);
-            Vec3d pos, tp, mot;
+            Vec3d pos;
             if(world.provider.getDimensionType().getId() == -1){
                 pos = new Vec3d(p.x * 8, p.y, p.z * 8);
-                tp = pos.add(4, 0, 4);
-                mot = pos.add(8, 0, 8);
             } else {
                 pos = new Vec3d(p.x * 0.125, p.y, p.z * 0.125);
-                tp = pos.add(0.5, 0, 0.5);
-                mot = pos.add(1, 0, 1);
             }
             line.add("w  x");
-            line.add(String.format("^w Cache: %d\nx: %f\ny: %f\nz: %f\n------------\nmx: %f\nmy: %f\nmz: %f",
-                    i, pos.x, pos.y, pos.z, mot.x, mot.y, mot.z));
-            line.add("?/tp " + tp.x +" "+ tp.y +" "+ tp.z);
+            line.add(String.format("^w Cache: %d\nx: %f\ny: %f\nz: %f\n------------\nx: %f\ny: %f\nz: %f",
+                    i, p.x, p.y, p.z, pos.x, pos.y, pos.z));
+            line.add("?/tp " + pos.x +" "+ pos.y +" "+ pos.z);
 
             if ((((i+1) % 50)==0) || i == uncacheCount.size()-1)
             {

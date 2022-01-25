@@ -1,0 +1,11 @@
+--- ../src-base/minecraft/net/minecraft/tileentity/TileEntityDaylightDetector.java
++++ ../src-work/minecraft/net/minecraft/tileentity/TileEntityDaylightDetector.java
+@@ -5,6 +5,8 @@
+ 
+ public class TileEntityDaylightDetector extends TileEntity implements ITickable
+ {
++    //CM
++    public String cm_name() { return "Daylight Detector"; }
+     public void func_73660_a()
+     {
+         if (this.field_145850_b != null && !this.field_145850_b.field_72995_K && this.field_145850_b.func_82737_E() % 20L == 0L)

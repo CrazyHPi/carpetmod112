@@ -32,7 +32,7 @@
      private final double[] field_191505_aI;
      private long field_191506_aJ;
  
-+        //CM
++    //CM
 +    public String cm_name() { return "Other Entity"; }
 +
      public Entity(World p_i1582_1_)

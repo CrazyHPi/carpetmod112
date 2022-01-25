@@ -32,7 +32,7 @@ public class CommandTick extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "Usage: tick rate <tickrate in tps> | warp [time in ticks to skip]";
+        return "/tick rate <tickrate in tps> OR /tick warp [time in ticks to skip]";
     }
 
     /**

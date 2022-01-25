@@ -11,7 +11,17 @@
  public class EntityLlama extends AbstractChestHorse implements IRangedAttackMob
  {
      private static final DataParameter<Integer> field_190720_bG = EntityDataManager.<Integer>func_187226_a(EntityLlama.class, DataSerializers.field_187192_b);
-@@ -192,7 +196,7 @@
+@@ -58,6 +62,9 @@
+     @Nullable
+     private EntityLlama field_190725_bL;
+ 
++    //CM
++    public String cm_name() { return "Llama"; }
++
+     public EntityLlama(World p_i47297_1_)
+     {
+         super(p_i47297_1_);
+@@ -192,7 +199,7 @@
              j = 6;
              f = 10.0F;
  
@@ -20,7 +30,7 @@
              {
                  flag = true;
                  this.func_146082_f(p_190678_1_);
-@@ -492,6 +496,19 @@
+@@ -492,6 +499,19 @@
          }
      }
  

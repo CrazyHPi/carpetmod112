@@ -31,8 +31,8 @@
 +                //Added note block imitation in 1.13 CARPET-XCOM
 +                if(CarpetSettings.noteBlockImitationOf1_13) p_189540_2_.func_175685_c(p_189540_3_, this, true);
 +            }else if(saveSoundEvent == null || saveSoundEvent != instrument){
-+	            saveSoundEvent = instrument;
-+	            if(CarpetSettings.noteBlockImitationOf1_13) p_189540_2_.func_190522_c(p_189540_3_, p_189540_4_);
++                saveSoundEvent = instrument;
++                if(CarpetSettings.noteBlockImitationOf1_13) p_189540_2_.func_190522_c(p_189540_3_, p_189540_4_);
              }
          }
      }
