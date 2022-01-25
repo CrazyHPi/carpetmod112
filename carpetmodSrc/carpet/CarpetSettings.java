@@ -55,6 +55,15 @@ public class CarpetSettings
     public static long endChunkSeed = 0;
 
 
+    // ===== AZ =====//
+    @Rule(desc = "HUD update interval", category = AZ, options = {"1", "5", "20", "100"}, validator = "validateHUDUpdateInterval")
+    public static int HUDUpdateInterval = 20;
+    public static boolean validateHUDUpdateInterval(int value){
+        if (value >=1 && value <=200){return true;}
+        return false;
+        }
+
+
     // ===== COMMANDS ===== //
     /*
      * Rules in this category should start with the "command" prefix
@@ -1066,7 +1075,7 @@ public class CarpetSettings
     }
 
     public static enum RuleCategory {
-        TNT, FIX, SURVIVAL, CREATIVE, EXPERIMENTAL, OPTIMIZATIONS, FEATURE, COMMANDS
+        TNT, FIX, SURVIVAL, CREATIVE, EXPERIMENTAL, OPTIMIZATIONS, FEATURE, COMMANDS, AZ
     }
 
     private static boolean validatePositive(int value) {
