@@ -63,7 +63,11 @@ public class CarpetSettings
         return false;
         }
 
+    @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
+    public static boolean commandServer = true;
 
+    @Rule(desc = "bungeecord server list", category = AZ)
+    public static String serverList = "112s, 11c, 112m";
     // ===== COMMANDS ===== //
     /*
      * Rules in this category should start with the "command" prefix
