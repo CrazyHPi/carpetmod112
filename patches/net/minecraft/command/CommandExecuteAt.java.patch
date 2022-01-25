@@ -1,0 +1,19 @@
+--- ../src-base/minecraft/net/minecraft/command/CommandExecuteAt.java
++++ ../src-work/minecraft/net/minecraft/command/CommandExecuteAt.java
+@@ -106,10 +106,14 @@
+         {
+             return func_175771_a(p_184883_3_, 5, p_184883_4_);
+         }
+-        else
++        else if (p_184883_3_.length == 9 && "detect".equals(p_184883_3_[4]))
+         {
+-            return p_184883_3_.length == 9 && "detect".equals(p_184883_3_[4]) ? func_175762_a(p_184883_3_, Block.field_149771_c.func_148742_b()) : Collections.emptyList();
++            return func_175762_a(p_184883_3_, Block.field_149771_c.func_148742_b());
+         }
++        //CM
++        ICommandManager manager = p_184883_1_.func_71187_D();
++        String s = func_180529_a(p_184883_3_, "detect".equals(p_184883_3_[4]) ? 10 : 4);
++        return manager.func_180524_a(p_184883_2_, s, p_184883_4_);
+     }
+ 
+     public boolean func_82358_a(String[] p_82358_1_, int p_82358_2_)

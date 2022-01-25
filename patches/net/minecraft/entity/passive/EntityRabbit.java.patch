@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/passive/EntityRabbit.java
++++ ../src-work/minecraft/net/minecraft/entity/passive/EntityRabbit.java
+@@ -60,6 +60,9 @@
+     private int field_175538_bq;
+     private int field_175541_bs;
+ 
++    //CM
++    public String cm_name() { return "Rabbit"; }
++
+     public EntityRabbit(World p_i45869_1_)
+     {
+         super(p_i45869_1_);

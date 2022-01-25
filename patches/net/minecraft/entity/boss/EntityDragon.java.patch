@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/boss/EntityDragon.java
++++ ../src-work/minecraft/net/minecraft/entity/boss/EntityDragon.java
+@@ -76,6 +76,9 @@
+     private final int[] field_184681_bN = new int[24];
+     private final PathHeap field_184682_bO = new PathHeap();
+ 
++    //CM
++    public String cm_name() { return "Ender Dragon"; }
++
+     public EntityDragon(World p_i1700_1_)
+     {
+         super(p_i1700_1_);

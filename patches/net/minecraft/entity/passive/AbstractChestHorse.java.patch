@@ -1,6 +1,6 @@
 --- ../src-base/minecraft/net/minecraft/entity/passive/AbstractChestHorse.java
 +++ ../src-work/minecraft/net/minecraft/entity/passive/AbstractChestHorse.java
-@@ -20,6 +20,10 @@
+@@ -20,10 +20,17 @@
  import net.minecraft.util.datafix.walkers.ItemStackDataLists;
  import net.minecraft.world.World;
  
@@ -11,7 +11,14 @@
  public abstract class AbstractChestHorse extends AbstractHorse
  {
      private static final DataParameter<Boolean> field_190698_bG = EntityDataManager.<Boolean>func_187226_a(AbstractChestHorse.class, DataSerializers.field_187198_h);
-@@ -238,7 +242,11 @@
+ 
++    //CM
++    public String cm_name() { return "Chest Horse"; }
++
+     public AbstractChestHorse(World p_i47300_1_)
+     {
+         super(p_i47300_1_);
+@@ -238,7 +245,11 @@
              }
              else
              {
@@ -24,7 +31,7 @@
                  return true;
              }
          }
-@@ -253,4 +261,11 @@
+@@ -253,4 +264,11 @@
      {
          return 5;
      }

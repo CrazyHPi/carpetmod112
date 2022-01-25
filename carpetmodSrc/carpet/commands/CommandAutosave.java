@@ -24,7 +24,7 @@ public class CommandAutosave extends CommandCarpetBase {
 
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return "Usage: autosave info | autosave detect <range-start> <range-end> <quiet t| run <command>>";
+		return "/autosave info | autosave detect <range-start> <range-end> <quiet t| run <command>>";
 	}
 
 	@Override

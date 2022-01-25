@@ -76,7 +76,7 @@ public class CommandLight extends CommandCarpetBase {
             fillLightInArea(sender.getEntityWorld(), t, x1, y1, z1, x2, y2, z2, lightLevel);
 
             notifyCommandListener(sender, this,
-                    String.format("Changing light level of %s to %d from:[%d %d %d] to:[%d %d %d]", type, lightLevel, x1, y1, z1, x2, y2, z2));
+                    String.format("Changing light level of %s to %d from: [%d %d %d] to: [%d %d %d]", type, lightLevel, x1, y1, z1, x2, y2, z2));
         } else {
             throw new WrongUsageException(USAGE);
         }

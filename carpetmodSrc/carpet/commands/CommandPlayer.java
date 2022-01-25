@@ -41,7 +41,7 @@ public class CommandPlayer extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "player <spawn|kill|stop|drop|swapHands|mount|dismount> <player_name>  OR /player <use|attack|jump> <player_name> <once|continuous|interval.. ticks>";
+        return "/player <spawn|kill|stop|drop|swapHands|mount|dismount> <player_name>  OR /player <use|attack|jump> <player_name> <once|continuous|interval.. ticks>";
     }
 
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
@@ -193,6 +193,7 @@ public class CommandPlayer extends CommandCarpetBase
                 throw new WrongUsageException("use /kill or /kick on regular players");
             }
             player.onKillCommand();
+            notifyCommandListener(sender, this, "commands.kick.success", player.getName());
             return;
         }
         if ("shadow".equalsIgnoreCase(action))

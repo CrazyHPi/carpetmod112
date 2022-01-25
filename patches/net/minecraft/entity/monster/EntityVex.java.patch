@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityVex.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityVex.java
+@@ -43,6 +43,9 @@
+     private boolean field_190667_bw;
+     private int field_190668_bx;
+ 
++    //CM
++    public String cm_name() { return "Vex"; }
++
+     public EntityVex(World p_i47280_1_)
+     {
+         super(p_i47280_1_);

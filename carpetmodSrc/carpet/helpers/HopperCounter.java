@@ -66,14 +66,15 @@ public class HopperCounter
         }
     }
 
-    public static List<ITextComponent> formatAll(MinecraftServer server, boolean realtime)
+    public static List<ITextComponent> formatAll(MinecraftServer server, boolean realtime, boolean brief)
     {
         List<ITextComponent> text = new ArrayList<>();
 
-        for (HopperCounter counter : COUNTERS.values()) {
-            List<ITextComponent> temp = counter.format(server, realtime, false);
-            if (temp.size() > 1) {
-                text.addAll(temp);
+        List<HopperCounter> counters = new ArrayList<>(COUNTERS.values());
+        counters.sort(Comparator.comparingInt(counter -> counter.color.getMetadata()));
+        for (HopperCounter counter : counters) {
+            if (counter.getTotalItems() > 0) {
+                text.addAll(counter.format(server, realtime, brief));
             }
         }
         if (text.isEmpty()) {
@@ -114,7 +115,8 @@ public class HopperCounter
                     count,
                     count * (20.0 * 60.0 * 60.0) / ticks));
         }).collect(Collectors.toList());
-        list.add(0, Messenger.s(null, String.format("Counter: %s", name)));
+        list.add(0, Messenger.s(null, String.format("Counter: %s (%.1f min), total: %d (%.1f/h)",
+                name, ticks / (20.0 * 60.0), total, total * (20.0 * 60.0 * 60.0) / ticks)));
         return list;
     }
 

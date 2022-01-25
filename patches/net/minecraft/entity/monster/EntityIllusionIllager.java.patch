@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityIllusionIllager.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityIllusionIllager.java
+@@ -41,6 +41,9 @@
+     private int field_193099_c;
+     private final Vec3d[][] field_193100_bx;
+ 
++    //CM
++    public String cm_name() { return "Illusioner"; }
++
+     public EntityIllusionIllager(World p_i47507_1_)
+     {
+         super(p_i47507_1_);

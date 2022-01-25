@@ -9,7 +9,16 @@
  public class TileEntityBeacon extends TileEntityLockable implements ITickable, ISidedInventory
  {
      public static final Potion[][] field_146009_a = new Potion[][] {{MobEffects.field_76424_c, MobEffects.field_76422_e}, {MobEffects.field_76429_m, MobEffects.field_76430_j}, {MobEffects.field_76420_g}, {MobEffects.field_76428_l}};
-@@ -111,49 +113,54 @@
+@@ -46,6 +48,8 @@
+     private ItemStack field_146011_o = ItemStack.field_190927_a;
+     private String field_146008_p;
+ 
++    //CM
++    public String cm_name() { return "Beacon"; }
+     public void func_73660_a()
+     {
+         if (this.field_145850_b.func_82737_E() % 80L == 0L)
+@@ -111,49 +115,54 @@
          boolean flag = true;
          BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
  

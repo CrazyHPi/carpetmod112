@@ -55,7 +55,7 @@ public class CommandRNG extends CommandCarpetBase {
      * @param sender The ICommandSender who is requesting usage details
      */
     public String getUsage(ICommandSender sender) {
-        return "rng <rule> <value>";
+        return "/rng <rule> <value>";
     }
 
     /**

@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityPigZombie.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityPigZombie.java
+@@ -35,6 +35,9 @@
+     private int field_70838_e;
+     private UUID field_175459_bn;
+ 
++    //CM
++    public String cm_name() { return "Zombie Pigman"; }
++
+     public EntityPigZombie(World p_i1739_1_)
+     {
+         super(p_i1739_1_);

@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntitySilverfish.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntitySilverfish.java
+@@ -31,6 +31,9 @@
+ {
+     private EntitySilverfish.AISummonSilverfish field_175460_b;
+ 
++    //CM
++    public String cm_name() { return "Silverfish"; }
++
+     public EntitySilverfish(World p_i1740_1_)
+     {
+         super(p_i1740_1_);

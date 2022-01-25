@@ -120,15 +120,8 @@ public class TickSpeed
             tick_warp_callback = null;
             tick_warp_sender = null;
         }
-        if (time_advancerer != null)
-        {
-            Messenger.m(time_advancerer, String.format("gi ... Time warp completed with %d tps, or %.2f mspt",tps, mspt ));
-            time_advancerer = null;
-        }
-        else
-        {
-            Messenger.print_server_message(CarpetServer.minecraft_server, String.format("... Time warp completed with %d tps, or %.2f mspt",tps, mspt ));
-        }
+        Messenger.print_server_message(CarpetServer.minecraft_server, String.format("... Time warped %d ticks, at %d tps, or %.2f mspt", completed_ticks, tps, mspt ));
+        time_advancerer = null;
         time_bias = 0;
 
     }

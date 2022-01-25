@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/passive/EntityPig.java
++++ ../src-work/minecraft/net/minecraft/entity/passive/EntityPig.java
+@@ -47,6 +47,9 @@
+     private int field_184766_bz;
+     private int field_184767_bA;
+ 
++    //CM
++    public String cm_name() { return "Pig"; }
++
+     public EntityPig(World p_i1689_1_)
+     {
+         super(p_i1689_1_);

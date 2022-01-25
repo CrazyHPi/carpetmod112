@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntitySpellcasterIllager.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntitySpellcasterIllager.java
+@@ -13,6 +13,9 @@
+ 
+ public abstract class EntitySpellcasterIllager extends AbstractIllager
+ {
++    //CM
++    public String cm_name() { return "Evoker"; }
++
+     private static final DataParameter<Byte> field_193088_c = EntityDataManager.<Byte>func_187226_a(EntitySpellcasterIllager.class, DataSerializers.field_187191_a);
+     protected int field_193087_b;
+     private EntitySpellcasterIllager.SpellType field_193089_bx = EntitySpellcasterIllager.SpellType.NONE;
