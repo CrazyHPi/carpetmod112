@@ -59,7 +59,7 @@ public class CarpetSettings
     @Rule(desc = "HUD update interval", category = AZ, options = {"1", "5", "20", "100"}, validator = "validateHUDUpdateInterval")
     public static int HUDUpdateInterval = 20;
     public static boolean validateHUDUpdateInterval(int value){
-        if (value >=1 && value <=200){return true;}
+        if (value >=1 && value <=2000){return true;}
         return false;
         }
 
