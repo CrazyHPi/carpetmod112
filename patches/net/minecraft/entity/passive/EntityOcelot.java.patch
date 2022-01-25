@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/passive/EntityOcelot.java
++++ ../src-work/minecraft/net/minecraft/entity/passive/EntityOcelot.java
+@@ -48,6 +48,9 @@
+     private EntityAIAvoidEntity<EntityPlayer> field_175545_bm;
+     private EntityAITempt field_70914_e;
+ 
++    //CM
++    public String cm_name() { return "Ocelot"; }
++
+     public EntityOcelot(World p_i1688_1_)
+     {
+         super(p_i1688_1_);

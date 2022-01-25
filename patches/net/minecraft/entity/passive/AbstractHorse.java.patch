@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/passive/AbstractHorse.java
++++ ../src-work/minecraft/net/minecraft/entity/passive/AbstractHorse.java
+@@ -86,6 +86,9 @@
+     protected boolean field_190688_bE = true;
+     protected int field_110285_bP;
+ 
++    //CM
++    public String cm_name() { return "Horse"; }
++
+     public AbstractHorse(World p_i47299_1_)
+     {
+         super(p_i47299_1_);

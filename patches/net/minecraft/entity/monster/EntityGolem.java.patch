@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityGolem.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityGolem.java
+@@ -9,6 +9,9 @@
+ 
+ public abstract class EntityGolem extends EntityCreature implements IAnimals
+ {
++    //CM
++    public String cm_name() { return "Golem"; }
++
+     public EntityGolem(World p_i1686_1_)
+     {
+         super(p_i1686_1_);

@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityWitch.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityWitch.java
+@@ -46,6 +46,9 @@
+     private static final DataParameter<Boolean> field_184731_c = EntityDataManager.<Boolean>func_187226_a(EntityWitch.class, DataSerializers.field_187198_h);
+     private int field_82200_e;
+ 
++    //CM
++    public String cm_name() { return "Witch"; }
++
+     public EntityWitch(World p_i1744_1_)
+     {
+         super(p_i1744_1_);

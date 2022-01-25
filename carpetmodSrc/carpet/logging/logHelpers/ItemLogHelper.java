@@ -49,7 +49,7 @@ public class ItemLogHelper {
                     if(positions.size() > 0) {
                         p = positions.get(positions.size() - 1);
                     }
-                    comp.add(Messenger.m(null,"w ----" + type + "---- t: " + positions.size() + "  pos: ", Messenger.dblt("w",p.x, p.y, p.z)));
+                    comp.add(Messenger.m(null,"w ----" + type + "---- t: " + positions.size() + "  pos: ", Messenger.tp("b", p.x, p.y, p.z)));
                     return comp.toArray(new ITextComponent[0]);
                 case "full":
                     comp.add(Messenger.m(null,"w ----" + type + "---- t: " + positions.size()));
@@ -59,8 +59,8 @@ public class ItemLogHelper {
                         Vec3d pos = positions.get(i);
                         Vec3d mot = motions.get(i);
                         comp.add(Messenger.m(null ,
-                                String.format("w tick: %d pos",(i+1)),Messenger.dblt("w",pos.x, pos.y, pos.z),
-                                "w   mot",Messenger.dblt("w",mot.x, mot.y, mot.z), Messenger.m(null, "w  [tp]", "/tp " + pos.x +" "+ pos.y +" "+ pos.z) ));
+                                String.format("w tick: %d pos",(i+1)),Messenger.tp("b", pos.x, pos.y, pos.z),
+                                "w   mot",Messenger.dblt("w",mot.x, mot.y, mot.z)));
                     }
                     break;
             }

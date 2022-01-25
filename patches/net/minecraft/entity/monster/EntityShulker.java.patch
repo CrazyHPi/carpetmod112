@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityShulker.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityShulker.java
+@@ -60,6 +60,9 @@
+     private BlockPos field_184707_bz;
+     private int field_184708_bA;
+ 
++    //CM
++    public String cm_name() { return "Shulker"; }
++
+     public EntityShulker(World p_i46779_1_)
+     {
+         super(p_i46779_1_);

@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityVindicator.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityVindicator.java
+@@ -40,6 +40,9 @@
+         }
+     };
+ 
++    //CM
++    public String cm_name() { return "Vindicator"; }
++
+     public EntityVindicator(World p_i47279_1_)
+     {
+         super(p_i47279_1_);

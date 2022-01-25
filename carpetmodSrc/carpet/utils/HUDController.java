@@ -1,5 +1,6 @@
 package carpet.utils;
 
+import carpet.helpers.GolemCounter;
 import carpet.helpers.HopperCounter;
 import carpet.helpers.TickSpeed;
 import carpet.logging.LoggerRegistry;
@@ -15,12 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 public class HUDController
 {
@@ -71,6 +67,12 @@ public class HUDController
                     "TOTAL_IN", PacketCounter.totalIn,
                     "TOTAL_OUT", PacketCounter.totalOut);
 
+        if (LoggerRegistry.__villages)
+            log_villages(server);
+
+        if (LoggerRegistry.__golems)
+            log_golems(server);
+
         for (EntityPlayer player: player_huds.keySet())
         {
             SPacketPlayerListHeaderFooter packet = new SPacketPlayerListHeaderFooter();
@@ -105,7 +107,7 @@ public class HUDController
                 "g  MSPT: ", String.format(Locale.US,"%s %.1f", color, MSPT))};
         LoggerRegistry.getLogger("tps").log(() -> message, "MSPT", MSPT, "TPS", TPS);
     }
-    
+
     private static void log_mobcaps()
     {
         List<Object> commandParams = new ArrayList<>();
@@ -152,7 +154,7 @@ public class HUDController
         components.remove(components.size()-1);
         return new ITextComponent[]{Messenger.m(null, components.toArray(new Object[0]))};
     }
-    
+
     private static void log_counter(MinecraftServer server)
     {
         List<Object> commandParams = new ArrayList<>();
@@ -163,10 +165,16 @@ public class HUDController
 
     private static ITextComponent [] send_counter_info(MinecraftServer server, String color)
     {
-        HopperCounter counter = HopperCounter.getCounter(color);
-        List<ITextComponent> res = counter == null ? Collections.emptyList() : counter.format(server, false, true);
-        return new ITextComponent[]{ Messenger.m(null, res.toArray(new Object[0]))};
+        if (color.equals("all")) {
+            return HopperCounter.formatAll(server, false, true).toArray(new ITextComponent[0]);
+        } else {
+            HopperCounter counter = HopperCounter.getCounter(color);
+            if (counter != null)
+                return counter.format(server, false, true).toArray(new ITextComponent[0]);
+        }
+        return null;
     }
+
     private static ITextComponent [] packetCounter()
     {
         ITextComponent [] ret =  new ITextComponent[]{
@@ -174,5 +182,39 @@ public class HUDController
         };
         PacketCounter.reset();
         return ret;
+    }
+
+    private static void log_villages(MinecraftServer server)
+    {
+        List<Object> commandParams = new ArrayList<>();
+        for (int dim = -1; dim <= 1; dim++)
+        {
+            int villages = server.getWorld(dim).getVillageCollection().getVillageList().size();
+            Collections.addAll(commandParams, "VILLAGES_DIM_" + dim, villages);
+        }
+        LoggerRegistry.getLogger("villages").log((option, player) -> {
+            int dim = player.dimension;
+            switch (option)
+            {
+                case "overworld":
+                    dim = 0;
+                    break;
+                case "nether":
+                    dim = -1;
+                    break;
+                case "end":
+                    dim = 1;
+                    break;
+            }
+            int villages = server.getWorld(dim).getVillageCollection().getVillageList().size();
+            return new ITextComponent[]{Messenger.m(null, "w Villages: " + villages)};
+        }, commandParams.toArray());
+    }
+
+    private static void log_golems(MinecraftServer server)
+    {
+        GolemCounter counter = GolemCounter.counter;
+        LoggerRegistry.getLogger("golems").log(() ->
+                counter.format(server, false, true, true), "GOLEMS", counter.getGolems());
     }
 }

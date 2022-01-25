@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/passive/EntityCow.java
++++ ../src-work/minecraft/net/minecraft/entity/passive/EntityCow.java
+@@ -28,6 +28,9 @@
+ 
+ public class EntityCow extends EntityAnimal
+ {
++    //CM
++    public String cm_name() { return "Cow"; }
++
+     public EntityCow(World p_i1683_1_)
+     {
+         super(p_i1683_1_);

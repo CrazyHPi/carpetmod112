@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityBlaze.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityBlaze.java
+@@ -35,6 +35,9 @@
+     private int field_70848_e;
+     private static final DataParameter<Byte> field_184712_c = EntityDataManager.<Byte>func_187226_a(EntityBlaze.class, DataSerializers.field_187191_a);
+ 
++    //CM
++    public String cm_name() { return "Blaze"; }
++
+     public EntityBlaze(World p_i1731_1_)
+     {
+         super(p_i1731_1_);

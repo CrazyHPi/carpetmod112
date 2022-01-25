@@ -21,7 +21,7 @@ public class CommandBlockInfo extends CommandCarpetBase
 
     public String getUsage(ICommandSender sender)
     {
-        return "Usage: blockinfo <X> <Y> <Z>";
+        return "/blockinfo <X> <Y> <Z>";
     }
 
     public String getName()

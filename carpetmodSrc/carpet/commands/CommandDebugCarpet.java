@@ -27,7 +27,7 @@ public class CommandDebugCarpet extends CommandCarpetBase {
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "Usage: debugCarpet <debug option>";
+        return "/debugCarpet <debug option>";
     }
 
     @Override

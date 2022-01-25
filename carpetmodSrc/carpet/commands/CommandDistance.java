@@ -19,7 +19,7 @@ public class CommandDistance extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "Usage: distance <X1> <Y1> <Z1> <X2> <Y2> <Z2>";
+        return "/distance <X1> <Y1> <Z1> <X2> <Y2> <Z2>";
     }
 
     public String getName()

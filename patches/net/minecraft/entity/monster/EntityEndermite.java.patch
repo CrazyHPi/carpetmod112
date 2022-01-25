@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityEndermite.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityEndermite.java
+@@ -29,6 +29,9 @@
+     private int field_175497_b;
+     private boolean field_175498_c;
+ 
++    //CM
++    public String cm_name() { return "Endermite"; }
++
+     public EntityEndermite(World p_i45840_1_)
+     {
+         super(p_i45840_1_);

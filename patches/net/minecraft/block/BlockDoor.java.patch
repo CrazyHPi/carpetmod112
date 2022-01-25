@@ -1,0 +1,60 @@
+--- ../src-base/minecraft/net/minecraft/block/BlockDoor.java
++++ ../src-work/minecraft/net/minecraft/block/BlockDoor.java
+@@ -1,6 +1,8 @@
+ package net.minecraft.block;
+ 
+ import java.util.Random;
++
++import carpet.helpers.IronFarmOptimization;
+ import net.minecraft.block.material.EnumPushReaction;
+ import net.minecraft.block.material.MapColor;
+ import net.minecraft.block.material.Material;
+@@ -182,6 +184,7 @@
+             if (iblockstate.func_177230_c() != this)
+             {
+                 p_189540_2_.func_175698_g(p_189540_3_);
++                IronFarmOptimization.onDoorRemoved(p_189540_2_.func_175714_ae(), p_189540_3_);
+             }
+             else if (p_189540_4_ != this)
+             {
+@@ -197,17 +200,20 @@
+             if (iblockstate1.func_177230_c() != this)
+             {
+                 p_189540_2_.func_175698_g(p_189540_3_);
++                IronFarmOptimization.onDoorRemoved(p_189540_2_.func_175714_ae(), p_189540_3_);
+                 flag1 = true;
+             }
+ 
+             if (!p_189540_2_.func_180495_p(p_189540_3_.func_177977_b()).func_185896_q())
+             {
+                 p_189540_2_.func_175698_g(p_189540_3_);
++                IronFarmOptimization.onDoorRemoved(p_189540_2_.func_175714_ae(), p_189540_3_);
+                 flag1 = true;
+ 
+                 if (iblockstate1.func_177230_c() == this)
+                 {
+                     p_189540_2_.func_175698_g(blockpos1);
++                    IronFarmOptimization.onDoorRemoved(p_189540_2_.func_175714_ae(), blockpos1);
+                 }
+             }
+ 
+@@ -316,6 +322,7 @@
+         if (p_176208_4_.field_71075_bZ.field_75098_d && p_176208_3_.func_177229_b(field_176523_O) == BlockDoor.EnumDoorHalf.UPPER && p_176208_1_.func_180495_p(blockpos).func_177230_c() == this)
+         {
+             p_176208_1_.func_175698_g(blockpos);
++            IronFarmOptimization.onDoorRemoved(p_176208_1_.func_175714_ae(), blockpos);
+         }
+ 
+         if (p_176208_3_.func_177229_b(field_176523_O) == BlockDoor.EnumDoorHalf.LOWER && p_176208_1_.func_180495_p(blockpos1).func_177230_c() == this)
+@@ -323,9 +330,11 @@
+             if (p_176208_4_.field_71075_bZ.field_75098_d)
+             {
+                 p_176208_1_.func_175698_g(p_176208_2_);
++                IronFarmOptimization.onDoorRemoved(p_176208_1_.func_175714_ae(), p_176208_2_);
+             }
+ 
+             p_176208_1_.func_175698_g(blockpos1);
++            IronFarmOptimization.onDoorRemoved(p_176208_1_.func_175714_ae(), blockpos1);
+         }
+     }
+ 

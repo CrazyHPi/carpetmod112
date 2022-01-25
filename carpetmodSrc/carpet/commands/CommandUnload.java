@@ -20,7 +20,7 @@ public class CommandUnload extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "Usage: unload <brief|verbose|order> <X1> <Y1> <Z1> [<x2> <y2> <z2>]";
+        return "/unload <brief|verbose|order> <X1> <Y1> <Z1> [<x2> <y2> <z2>]";
     }
 
     public String getName()

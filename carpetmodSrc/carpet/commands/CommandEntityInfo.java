@@ -39,7 +39,7 @@ public class CommandEntityInfo extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "Usage: entityinfo <entity_selector>";
+        return "/entityinfo <entity_selector>";
     }
 
 
