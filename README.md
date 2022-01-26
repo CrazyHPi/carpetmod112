@@ -1,6 +1,10 @@
 # Carpet Mod
 Yes.
 
+improved iron farm stuff(village marks and some commands) thanks to Vales.
+
+add some commands.
+
 ## Getting Started
 ### Setting up your sources
 - Clone this repository.
