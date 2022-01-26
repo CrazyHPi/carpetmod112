@@ -20,7 +20,7 @@ public class CommandCarpet extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "carpet <rule> <value>";
+        return "/carpet <rule> <value>";
     }
     public String getName()
     {

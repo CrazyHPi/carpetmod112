@@ -1,6 +1,6 @@
 --- ../src-base/minecraft/net/minecraft/entity/monster/EntityHusk.java
 +++ ../src-work/minecraft/net/minecraft/entity/monster/EntityHusk.java
-@@ -16,6 +16,9 @@
+@@ -16,8 +16,14 @@
  import net.minecraft.world.World;
  import net.minecraft.world.storage.loot.LootTableList;
  
@@ -9,8 +9,13 @@
 +
  public class EntityHusk extends EntityZombie
  {
++    //CM
++    public String cm_name() { return "Husk"; }
++
      public EntityHusk(World p_i47286_1_)
-@@ -30,7 +33,12 @@
+     {
+         super(p_i47286_1_);
+@@ -30,7 +36,12 @@
  
      public boolean func_70601_bi()
      {

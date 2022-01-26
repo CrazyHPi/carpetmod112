@@ -29,7 +29,7 @@ public class CommandSpawn extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "Usage:\nspawn list <X> <Y> <Z>\nspawn entities/rates <... | passive | hostile | ambient | water>\nspawn mobcaps <set <num>, nether, overworld, end>\nspawn tracking <.../stop/start/hostile/passive/water/ambient>\nspawn mocking <true/false>";
+        return "/spawn list <X> <Y> <Z>\nOR /spawn entities/rates <... | passive | hostile | ambient | water>\nOR /spawn mobcaps <set <num>, nether, overworld, end>\nOR /spawn tracking <.../stop/start/hostile/passive/water/ambient>\nOR /spawn mocking <true/false>";
     }
     public String getName()
     {

@@ -27,7 +27,7 @@ public class CommandGrow extends CommandCarpetBase {
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return this.getName() + " <x> <y> <z> [times]";
+        return "/grow <x> <y> <z> [times]";
     }
 
     @Override

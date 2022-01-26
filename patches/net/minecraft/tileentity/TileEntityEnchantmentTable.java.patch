@@ -9,7 +9,17 @@
  public class TileEntityEnchantmentTable extends TileEntity implements ITickable, IInteractionObject
  {
      public int field_145926_a;
-@@ -52,6 +54,10 @@
+@@ -28,6 +30,9 @@
+     private static final Random field_145923_r = new Random();
+     private String field_145922_s;
+ 
++    //CM
++    public String cm_name() { return "Enchantment Table"; }
++
+     public NBTTagCompound func_189515_b(NBTTagCompound p_189515_1_)
+     {
+         super.func_189515_b(p_189515_1_);
+@@ -52,6 +57,10 @@
  
      public void func_73660_a()
      {

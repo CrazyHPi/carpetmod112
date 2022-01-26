@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityElderGuardian.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityElderGuardian.java
+@@ -21,6 +21,9 @@
+ 
+ public class EntityElderGuardian extends EntityGuardian
+ {
++    //CM
++    public String cm_name() { return "Elder Guardian"; }
++
+     public EntityElderGuardian(World p_i47288_1_)
+     {
+         super(p_i47288_1_);

@@ -1,6 +1,16 @@
 --- ../src-base/minecraft/net/minecraft/tileentity/TileEntityEndGateway.java
 +++ ../src-work/minecraft/net/minecraft/tileentity/TileEntityEndGateway.java
-@@ -205,6 +205,8 @@
+@@ -30,6 +30,9 @@
+     private BlockPos field_184317_h;
+     private boolean field_184318_i;
+ 
++    //CM
++    public String cm_name() { return "End Gateway"; }
++
+     public NBTTagCompound func_189515_b(NBTTagCompound p_189515_1_)
+     {
+         super.func_189515_b(p_189515_1_);
+@@ -205,6 +208,8 @@
      {
          BlockPos blockpos = null;
  
@@ -9,7 +19,7 @@
          for (int i = -p_184308_2_; i <= p_184308_2_; ++i)
          {
              for (int j = -p_184308_2_; j <= p_184308_2_; ++j)
-@@ -225,6 +227,7 @@
+@@ -225,6 +230,7 @@
                  }
              }
          }

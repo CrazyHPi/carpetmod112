@@ -1,0 +1,40 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityIronGolem.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityIronGolem.java
+@@ -1,5 +1,6 @@
+ package net.minecraft.entity.monster;
+ 
++import carpet.CarpetSettings;
+ import com.google.common.base.Predicate;
+ import javax.annotation.Nullable;
+ import net.minecraft.block.Block;
+@@ -46,6 +47,9 @@
+     private int field_70855_f;
+     private int field_70856_g;
+ 
++    //CM
++    public String cm_name() { return "Iron Golem"; }
++
+     public EntityIronGolem(World p_i1694_1_)
+     {
+         super(p_i1694_1_);
+@@ -269,4 +273,20 @@
+ 
+         super.func_70645_a(p_70645_1_);
+     }
++
++    //CM
++    @Override
++    protected void func_70629_bd()
++    {
++        if (!CarpetSettings.golemSwimFix) return;
++        super.func_70629_bd();
++    }
++
++    //CM
++    @Override
++    protected void func_180466_bG()
++    {
++        if (!CarpetSettings.golemSwimFix) return;
++        super.func_180466_bG();
++    }
+ }

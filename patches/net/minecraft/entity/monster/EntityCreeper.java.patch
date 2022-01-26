@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityCreeper.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityCreeper.java
+@@ -46,6 +46,9 @@
+     private int field_82226_g = 3;
+     private int field_175494_bm;
+ 
++    //CM
++    public String cm_name() { return "Creeper"; }
++
+     public EntityCreeper(World p_i1733_1_)
+     {
+         super(p_i1733_1_);

@@ -23,7 +23,7 @@ public class CommandProfile extends CommandCarpetBase
     @Override
     public String getUsage(ICommandSender sender)
     {
-        return "Usage: /profile <entities>";
+        return "/profile <entities>";
     }
 
     @Override

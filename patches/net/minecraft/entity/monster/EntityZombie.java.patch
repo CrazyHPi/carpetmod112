@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/monster/EntityZombie.java
++++ ../src-work/minecraft/net/minecraft/entity/monster/EntityZombie.java
+@@ -63,6 +63,9 @@
+     private float field_146074_bv = -1.0F;
+     private float field_146073_bw;
+ 
++    //CM
++    public String cm_name() { return "Zombie"; }
++
+     public EntityZombie(World p_i1745_1_)
+     {
+         super(p_i1745_1_);

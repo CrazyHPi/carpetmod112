@@ -1,6 +1,6 @@
 --- ../src-base/minecraft/net/minecraft/tileentity/TileEntityEnderChest.java
 +++ ../src-work/minecraft/net/minecraft/tileentity/TileEntityEnderChest.java
-@@ -6,7 +6,10 @@
+@@ -6,15 +6,25 @@
  import net.minecraft.util.ITickable;
  import net.minecraft.util.SoundCategory;
  
@@ -12,8 +12,11 @@
  {
      public float field_145972_a;
      public float field_145975_i;
-@@ -15,6 +18,11 @@
+     public int field_145973_j;
+     private int field_145974_k;
  
++    //CM
++    public String cm_name() { return "Ender Chest"; }
      public void func_73660_a()
      {
 +        // CARPET-optimizedTileEntities: Skip the rest of the update if sleeping
@@ -24,7 +27,7 @@
          if (++this.field_145974_k % 20 * 4 == 0)
          {
              this.field_145850_b.func_175641_c(this.field_174879_c, Blocks.field_150477_bB, 1, this.field_145973_j);
-@@ -65,10 +73,16 @@
+@@ -65,10 +75,16 @@
                  this.field_145972_a = 0.0F;
              }
          }
@@ -41,7 +44,7 @@
          if (p_145842_1_ == 1)
          {
              this.field_145973_j = p_145842_2_;
-@@ -109,4 +123,14 @@
+@@ -109,4 +125,14 @@
              return p_145971_1_.func_70092_e((double)this.field_174879_c.func_177958_n() + 0.5D, (double)this.field_174879_c.func_177956_o() + 0.5D, (double)this.field_174879_c.func_177952_p() + 0.5D) <= 64.0D;
          }
      }

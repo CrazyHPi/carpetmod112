@@ -1,0 +1,12 @@
+--- ../src-base/minecraft/net/minecraft/entity/passive/EntityChicken.java
++++ ../src-work/minecraft/net/minecraft/entity/passive/EntityChicken.java
+@@ -44,6 +44,9 @@
+     public int field_70887_j;
+     public boolean field_152118_bv;
+ 
++    //CM
++    public String cm_name() { return "Chicken"; }
++
+     public EntityChicken(World p_i1682_1_)
+     {
+         super(p_i1682_1_);
