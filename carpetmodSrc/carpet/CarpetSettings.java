@@ -26,6 +26,7 @@ import carpet.patches.BlockWool;
 import carpet.utils.TickingArea;
 import carpet.worldedit.WorldEditBridge;
 import net.minecraft.block.BlockFalling;
+import net.minecraft.command.NumberInvalidException;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -44,7 +45,8 @@ public class CarpetSettings
 {
     public static boolean locked = false;
 
-    public static final String carpetVersion = "v22_01_25";
+    // TODO: replace these constants at build time
+    public static final String carpetVersion = "v22_01_27";
     public static final String minecraftVersion = "1.12.2";
     public static final String mcpMappings = "39-1.12";
 
@@ -1005,12 +1007,12 @@ public class CarpetSettings
     public static boolean bedrockDropsAsItem;
 
     @Rule(desc = "Disables placement of the bedrock item", category = FEATURE)
-    public static boolean disableBedrockPlacement;
+    public static boolean disableBedrockPlacement = false;
 
     @Rule(desc = "Changes default tnt fuse.", category = CREATIVE, validator = "validatePositive", options = {"70", "80", "100"})
     public static int tntFuseLength = 80;
 
-    @carpet.CarpetSettings.Rule(desc = "Removes tnt applying velocity to other entities.", category = CREATIVE)
+    @Rule(desc = "Removes tnt applying velocity to other entities.", category = CREATIVE)
     public static boolean removeTNTVelocity = false;
 
 
