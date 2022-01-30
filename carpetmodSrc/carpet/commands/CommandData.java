@@ -9,6 +9,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 
+import carpet.helpers.DataHelper;
+
 import javax.annotation.Nullable;
 import java.util.*;
 
@@ -39,15 +41,6 @@ public class CommandData extends CommandCarpetBase{
         return "Usage: data get <player>";
     }
 
-    public String process_player_info (MinecraftServer server, ICommandSender sender, String name) throws CommandException{
-        EntityPlayer ePlayer = getPlayer(server, sender, name);
-        String processed_info = name + " has the following entity data: {";
-        processed_info += String.format("Pos: [%.5fd, %.5fd, %.5fd], ",ePlayer.posX, ePlayer.posY, ePlayer.posZ);
-        processed_info += String.format("Dimension: %d", ePlayer.getEntityWorld().provider.getDimensionType().getId());
-        processed_info += "}";
-        return processed_info;
-    }
-
     /**
      * Callback for when the command is executed
      *
@@ -57,8 +50,14 @@ public class CommandData extends CommandCarpetBase{
      */
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException{
         if (!command_enabled("commandData",sender)) return;
-        if (args.length ==3 && "entity".equalsIgnoreCase(args[1])){
-            notifyCommandListener(sender, this, process_player_info(server, sender, args[2]));
+        if (args.length == 3 && "entity".equalsIgnoreCase(args[1])) {
+            notifyCommandListener(sender, this, DataHelper.process_player_info(server, sender, args[2]));
+        }
+        if (args.length == 4 && "Pos".equalsIgnoreCase(args[3])){
+            notifyCommandListener(sender,this, DataHelper.process_player_pos(server, sender, args[2]));
+        }
+        if (args.length == 4 && "Dimension".equalsIgnoreCase(args[3])){
+            notifyCommandListener(sender,this, DataHelper.process_player_dim(server,sender, args[2]));
         }
     }
 
