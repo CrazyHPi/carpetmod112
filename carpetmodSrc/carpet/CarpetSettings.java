@@ -67,8 +67,12 @@ public class CarpetSettings
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
     public static boolean commandServer = true;
 
-    @Rule(desc = "bungeecord server list", category = AZ, options = "112s,112c,112m")
+    @Rule(desc = "bungeecord server list", category = AZ, options = "112s,112c,112m", extra = {
+            "Bungeecord should take over the server list completion, but just in case"})
     public static String serverList = "112s,112c,112m";
+
+    @Rule(desc = "get player data", category = {AZ,COMMANDS})
+    public static boolean commandData = true;
 
     // ===== COMMANDS ===== //
     /*

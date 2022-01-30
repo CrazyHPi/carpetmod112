@@ -57,5 +57,6 @@ public class CarpetCommands {
 
         // ===== AZ commands ===== //
         handler.registerCommand((new CommandServer()));
+        handler.registerCommand((new CommandData()));
     }
 }
