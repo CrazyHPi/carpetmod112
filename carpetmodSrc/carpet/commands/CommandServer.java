@@ -26,7 +26,7 @@ public class CommandServer extends CommandCarpetBase{
     //do nothing cuz its just a tab completions
     public void execute(final MinecraftServer server, final ICommandSender sender, String[] args) throws CommandException{}
 
-    public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos pos ){
+    public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos){
         if (!CarpetSettings.commandServer){
             return Collections.<String>emptyList();
         }
