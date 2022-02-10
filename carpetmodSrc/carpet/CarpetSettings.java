@@ -46,7 +46,7 @@ public class CarpetSettings
     public static boolean locked = false;
 
     // TODO: replace these constants at build time
-    public static final String carpetVersion = "v22_01_30";
+    public static final String carpetVersion = "v22_02_09";
     public static final String minecraftVersion = "1.12.2";
     public static final String mcpMappings = "39-1.12";
 
@@ -666,9 +666,6 @@ public class CarpetSettings
             "Fixes spawning issues due to incorrect bounding boxes"
     })
     public static boolean boundingBoxFix = false;
-
-    @Rule(desc = "Blocks inherit the original light opacity and light values while being pushed with a piston", category = OPTIMIZATIONS)
-    public static boolean movingBlockLightOptimization = false;
 
     @Rule(desc = "Chunk saving issues that causes entites and blocks to duplicate or disappear", category = FIX, extra = "By Theosib")
     @BugFixDefault
