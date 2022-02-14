@@ -57,7 +57,10 @@ public class CarpetCommands {
         // ----- RSMM End ----- //
 
         // ===== AZ commands ===== //
-        handler.registerCommand((new CommandServer()));
-        handler.registerCommand((new CommandData()));
+        handler.registerCommand(new CommandServer());
+        handler.registerCommand(new CommandData());
+        handler.registerCommand(new CommandOverworld());
+        handler.registerCommand(new CommandNether());
+        handler.registerCommand(new CommandEd());
     }
 }

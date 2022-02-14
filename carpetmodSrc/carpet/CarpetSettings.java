@@ -46,7 +46,7 @@ public class CarpetSettings
     public static boolean locked = false;
 
     // TODO: replace these constants at build time
-    public static final String carpetVersion = "v22_02_10_t";
+    public static final String carpetVersion = "v22_02_10";
     public static final String minecraftVersion = "1.12.2";
     public static final String mcpMappings = "39-1.12";
 
@@ -57,13 +57,15 @@ public class CarpetSettings
 
 
     // ===== AZ =====//
+    //AZ features
     @Rule(desc = "HUD update interval", category = AZ, options = {"1", "5", "20", "100"}, validator = "validateHUDUpdateInterval")
     public static int HUDUpdateInterval = 20;
     public static boolean validateHUDUpdateInterval(int value){
         if (value >=1 && value <=2000){return true;}
         return false;
-        }
+    }
 
+    //AZ commands
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
     public static boolean commandServer = true;
 
@@ -73,6 +75,17 @@ public class CarpetSettings
 
     @Rule(desc = "get player data", category = {AZ,COMMANDS})
     public static boolean commandData = true;
+
+    @Rule(desc = "teleport to overworld", category = {AZ,COMMANDS})
+    public static boolean commandOverworld = false;
+
+    @Rule(desc = "teleport to nether", category = {AZ,COMMANDS})
+    public static boolean commandNether = false;
+
+    @Rule(desc = "teleport to end", category = {AZ,COMMANDS}, extra = {
+            "why this is not /end? cuz /end is already taken by bungeecord, so /ed will not be intercept"
+    })
+    public static boolean commandEd = false;
 
     // ===== COMMANDS ===== //
     /*
