@@ -63,7 +63,7 @@ public class CommandData extends CommandCarpetBase{
 
     public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos){
         if (!CarpetSettings.commandData){
-            notifyCommandListener(sender, this, "Command is disabled in carpet settings");;
+            notifyCommandListener(sender, this, "Command is disabled in carpet settings");
         }
         if (args.length == 1){
             List<String> list = Arrays.asList("get");
