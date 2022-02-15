@@ -1,5 +1,6 @@
 package carpet.helpers;
 //AUTHOR: PallaPalla
+import carpet.utils.Messenger;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -73,10 +74,14 @@ public class TileEntityOptimizer
                 else if (iblockstate.getBlock() == Blocks.HOPPER)
                 {
                     TileEntity tileEntity = worldIn.getTileEntity(blockpos);
-                    if((enumfacing == EnumFacing.DOWN || enumfacing == BlockHopper.getFacing(tileEntity.getBlockMetadata()).getOpposite())
-                            && tileEntity instanceof ILazyTileEntity)
-                    {
-                        ((ILazyTileEntity) tileEntity).wakeUp();
+                    try {
+                        if ((enumfacing == EnumFacing.DOWN || enumfacing == BlockHopper.getFacing(tileEntity.getBlockMetadata()).getOpposite())
+                                && tileEntity instanceof ILazyTileEntity) {
+                            ((ILazyTileEntity) tileEntity).wakeUp();
+                        }
+                    }
+                    catch (NullPointerException e){
+                        Messenger.print_server_message(worldIn.getMinecraftServer(), "TileEntityOptimizer crashed, check nearby tile entity.");
                     }
                 }
             }
