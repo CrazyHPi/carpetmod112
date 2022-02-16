@@ -1,6 +1,20 @@
 --- ../src-base/minecraft/net/minecraft/command/CommandTime.java
 +++ ../src-work/minecraft/net/minecraft/command/CommandTime.java
-@@ -83,6 +83,15 @@
+@@ -40,6 +40,13 @@
+                 {
+                     i1 = 13000;
+                 }
++                //nicer to use
++                else if ("noon".equals(p_184881_3_[1])){
++                    i1 = 6000;
++                }
++                else if ("midnight".equals(p_184881_3_[1])){
++                    i1 = 18000;
++                }
+                 else
+                 {
+                     i1 = func_180528_a(p_184881_3_[1], 0);
+@@ -83,6 +90,15 @@
                      func_152373_a(p_184881_2_, this, "commands.time.query", new Object[] {i});
                      return;
                  }
@@ -16,7 +30,12 @@
              }
          }
  
-@@ -101,7 +110,7 @@
+@@ -97,11 +113,11 @@
+         }
+         else if (p_184883_3_.length == 2 && "set".equals(p_184883_3_[0]))
+         {
+-            return func_71530_a(p_184883_3_, new String[] {"day", "night"});
++            return func_71530_a(p_184883_3_, new String[] {"day", "night", "noon", "midnight"});
          }
          else
          {
