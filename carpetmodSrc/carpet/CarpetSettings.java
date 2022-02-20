@@ -65,6 +65,9 @@ public class CarpetSettings
         return false;
     }
 
+    @Rule(desc = "Dsiable creative mode item drop cooldown", category = {CREATIVE, AZ})
+    public static boolean antiSpamDisabled = false;
+
     //AZ commands
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
     public static boolean commandServer = true;
@@ -83,7 +86,7 @@ public class CarpetSettings
     public static boolean commandNether = false;
 
     @Rule(desc = "teleport to end", category = {AZ,COMMANDS}, extra = {
-            "why this is not /end? cuz /end is already taken by bungeecord, so /ed will not be intercept"
+            "why this is not /end? cuz /end is already taken by bungeecord, so /ed will not be intercepted"
     })
     public static boolean commandEd = false;
 
