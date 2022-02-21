@@ -1,6 +1,15 @@
 --- ../src-base/minecraft/net/minecraft/block/BlockDispenser.java
 +++ ../src-work/minecraft/net/minecraft/block/BlockDispenser.java
-@@ -32,6 +32,8 @@
+@@ -1,6 +1,8 @@
+ package net.minecraft.block;
+ 
+ import java.util.Random;
++
++import carpet.utils.Messenger;
+ import net.minecraft.block.material.Material;
+ import net.minecraft.block.properties.IProperty;
+ import net.minecraft.block.properties.PropertyBool;
+@@ -32,6 +34,8 @@
  import net.minecraft.util.registry.RegistryDefaulted;
  import net.minecraft.world.World;
  
@@ -9,7 +18,7 @@
  public class BlockDispenser extends BlockContainer
  {
      public static final PropertyDirection field_176441_a = BlockDirectional.field_176387_N;
-@@ -54,6 +56,8 @@
+@@ -54,6 +58,8 @@
      public void func_176213_c(World p_176213_1_, BlockPos p_176213_2_, IBlockState p_176213_3_)
      {
          super.func_176213_c(p_176213_1_, p_176213_2_, p_176213_3_);
@@ -18,7 +27,7 @@
          this.func_176438_e(p_176213_1_, p_176213_2_, p_176213_3_);
      }
  
-@@ -153,7 +157,17 @@
+@@ -153,7 +159,17 @@
  
      public void func_189540_a(IBlockState p_189540_1_, World p_189540_2_, BlockPos p_189540_3_, Block p_189540_4_, BlockPos p_189540_5_)
      {
@@ -37,7 +46,27 @@
          boolean flag1 = ((Boolean)p_189540_1_.func_177229_b(field_176440_b)).booleanValue();
  
          if (flag && !flag1)
-@@ -187,7 +201,8 @@
+@@ -171,7 +187,18 @@
+     {
+         if (!p_180650_1_.field_72995_K)
+         {
+-            this.func_176439_d(p_180650_1_, p_180650_2_);
++            if (!CarpetSettings.invalidTileEntityCrashFix){
++                this.func_176439_d(p_180650_1_, p_180650_2_);
++            }
++            //invalidTileEntityCrashFix
++            else{
++                try {
++                    this.func_176439_d(p_180650_1_, p_180650_2_);
++                }
++                catch (ClassCastException e){
++                    Messenger.print_server_message(p_180650_1_.func_73046_m(), String.format("Tile entity %s crashed at %s in %s", p_180650_3_.func_177230_c(), p_180650_2_, p_180650_1_.field_73011_w.func_186058_p()));
++                }
++            }
+         }
+     }
+ 
+@@ -187,7 +214,8 @@
  
      public void func_180633_a(World p_180633_1_, BlockPos p_180633_2_, IBlockState p_180633_3_, EntityLivingBase p_180633_4_, ItemStack p_180633_5_)
      {

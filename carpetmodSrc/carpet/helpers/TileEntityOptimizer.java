@@ -81,7 +81,7 @@ public class TileEntityOptimizer
                         }
                     }
                     catch (NullPointerException e){
-                        Messenger.print_server_message(worldIn.getMinecraftServer(), "TileEntityOptimizer crashed, check nearby tile entity.");
+                        Messenger.print_server_message(worldIn.getMinecraftServer(), "TileEntity crashed, check nearby tile entity.");
                     }
                 }
             }

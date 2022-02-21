@@ -72,6 +72,9 @@ public class CarpetSettings
     @Rule(desc = "Hopper counter's hopper has no cooldown", category = {CREATIVE, AZ})
     public static boolean hopperCountersUnlimitedSpeed = false;
 
+    @Rule(desc = "fix null or wrong tile entity crash", category = {AZ, CREATIVE, FIX})
+    public static boolean invalidTileEntityCrashFix = false;
+
     //AZ commands
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
     public static boolean commandServer = true;
