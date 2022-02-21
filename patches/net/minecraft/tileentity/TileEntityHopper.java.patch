@@ -1,16 +1,18 @@
 --- ../src-base/minecraft/net/minecraft/tileentity/TileEntityHopper.java
 +++ ../src-work/minecraft/net/minecraft/tileentity/TileEntityHopper.java
-@@ -2,6 +2,9 @@
+@@ -2,6 +2,11 @@
  
  import java.util.List;
  import javax.annotation.Nullable;
 +
++import carpet.CarpetServer;
 +import carpet.carpetclient.CarpetClientChunkLogger;
 +import carpet.helpers.TileEntityCraftingTable;
++import carpet.utils.Messenger;
  import net.minecraft.block.Block;
  import net.minecraft.block.BlockChest;
  import net.minecraft.block.BlockHopper;
-@@ -28,12 +31,21 @@
+@@ -28,12 +33,22 @@
  import net.minecraft.util.math.MathHelper;
  import net.minecraft.world.World;
  
@@ -26,6 +28,7 @@
      private NonNullList<ItemStack> field_145900_a = NonNullList.<ItemStack>func_191197_a(5, ItemStack.field_190927_a);
      private int field_145901_j = -1;
      private long field_190578_g;
++    private static final int OPERATION_LIMIT = Short.MAX_VALUE;
  
 +        //CM
 +    public String cm_name() { return "Hopper"; }
@@ -33,7 +36,7 @@
      public static void func_189683_a(DataFixer p_189683_0_)
      {
          p_189683_0_.func_188258_a(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TileEntityHopper.class, new String[] {"Items"}));
-@@ -132,14 +144,44 @@
+@@ -132,19 +147,65 @@
              {
                  boolean flag = false;
  
@@ -83,7 +86,60 @@
                  }
  
                  if (flag)
-@@ -191,10 +233,42 @@
+                 {
+                     this.func_145896_c(8);
++                    //hopperCountersUnlimitedSpeed
++                    if (CarpetSettings.hopperCounters != CarpetSettings.HopperCounters.off && CarpetSettings.hopperCountersUnlimitedSpeed){
++                        //wool counter
++                        if (CarpetSettings.hopperCounters == CarpetSettings.HopperCounters.wool){
++                            EnumDyeColor woolcolor = this.get_wool_pointing();
++
++                            if (woolcolor != null){
++                                unlimitedSpeedHopper();
++                            }
++                        }
++
++                        //all counter
++                        if (CarpetSettings.hopperCounters == CarpetSettings.HopperCounters.all){
++                            unlimitedSpeedHopper();
++                        }
++                    }
+                     this.func_70296_d();
+                     return true;
+                 }
+@@ -158,6 +219,31 @@
+         }
+     }
+ 
++    private void unlimitedSpeedHopper() {
++        for (int i = OPERATION_LIMIT - 1; i >= 0 ; i--) {
++            boolean flag1 = false;
++
++            flag1 = false;
++            if (!this.func_152104_k())
++            {
++                flag1 = this.func_145883_k();
++            }
++
++            if (!this.func_152105_l())
++            {
++                flag1 = func_145891_a(this) || flag1;
++            }
++
++            if (!flag1){
++                break;
++            }
++            if (i == 0){
++                Messenger.print_server_message(this.func_145831_w().func_73046_m(), String.format("Hopper in %s exceeded hopperCountersUnlimitedSpeed operation limit %d", new BlockPos(this.func_96107_aA(),this.func_96109_aB(),this.func_96108_aC()), OPERATION_LIMIT));
++            }
++        }
++        this.func_145896_c(0);
++    }
++
+     private boolean func_152104_k()
+     {
+         for (ItemStack itemstack : this.field_145900_a)
+@@ -191,10 +277,43 @@
  
      private boolean func_145883_k()
      {
@@ -110,6 +166,7 @@
 +                        HopperCounter.COUNTERS.get(counter).add(this.func_145831_w().func_73046_m(), itemstack);
 +                        this.func_70299_a(i, ItemStack.field_190927_a);
 +                    }
++
 +                }
 +                return true;
 +            }
@@ -126,7 +183,7 @@
              return false;
          }
          else
-@@ -203,6 +277,10 @@
+@@ -203,6 +322,10 @@
  
              if (this.func_174919_a(iinventory, enumfacing))
              {
@@ -137,7 +194,7 @@
                  return false;
              }
              else
-@@ -297,7 +375,10 @@
+@@ -297,7 +420,10 @@
  
      public static boolean func_145891_a(IHopper p_145891_0_)
      {
@@ -148,7 +205,7 @@
  
          if (iinventory != null)
          {
-@@ -305,6 +386,14 @@
+@@ -305,6 +431,14 @@
  
              if (func_174917_b(iinventory, enumfacing))
              {
@@ -163,7 +220,7 @@
                  return false;
              }
  
-@@ -333,6 +422,13 @@
+@@ -333,6 +467,13 @@
                      }
                  }
              }
@@ -177,7 +234,7 @@
          }
          else
          {
-@@ -352,6 +448,11 @@
+@@ -352,6 +493,11 @@
      {
          ItemStack itemstack = p_174915_1_.func_70301_a(p_174915_2_);
  
@@ -189,7 +246,7 @@
          if (!itemstack.func_190926_b() && func_174921_b(p_174915_1_, itemstack, p_174915_2_, p_174915_3_))
          {
              ItemStack itemstack1 = itemstack.func_77946_l();
-@@ -499,6 +600,14 @@
+@@ -499,6 +645,14 @@
          return func_145893_b(this.func_145831_w(), this.func_96107_aA() + (double)enumfacing.func_82601_c(), this.func_96109_aB() + (double)enumfacing.func_96559_d(), this.func_96108_aC() + (double)enumfacing.func_82599_e());
      }
  
@@ -204,7 +261,7 @@
      public static IInventory func_145884_b(IHopper p_145884_0_)
      {
          return func_145893_b(p_145884_0_.func_145831_w(), p_145884_0_.func_96107_aA(), p_145884_0_.func_96109_aB() + 1.0D, p_145884_0_.func_96108_aC());
-@@ -546,7 +655,7 @@
+@@ -546,7 +700,7 @@
          return iinventory;
      }
  
@@ -213,7 +270,7 @@
      {
          if (p_145894_0_.func_77973_b() != p_145894_1_.func_77973_b())
          {
-@@ -611,4 +720,15 @@
+@@ -611,4 +765,15 @@
      {
          return this.field_145900_a;
      }

@@ -38,6 +38,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.server.MinecraftServer;
+import org.lwjgl.Sys;
 
 import static carpet.CarpetSettings.RuleCategory.*;
 
@@ -67,6 +68,9 @@ public class CarpetSettings
 
     @Rule(desc = "Dsiable creative mode item drop cooldown", category = {CREATIVE, AZ})
     public static boolean antiSpamDisabled = false;
+
+    @Rule(desc = "Hopper counter's hopper has no cooldown", category = {CREATIVE, AZ})
+    public static boolean hopperCountersUnlimitedSpeed = false;
 
     //AZ commands
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
