@@ -74,14 +74,9 @@ public class TileEntityOptimizer
                 else if (iblockstate.getBlock() == Blocks.HOPPER)
                 {
                     TileEntity tileEntity = worldIn.getTileEntity(blockpos);
-                    try {
-                        if ((enumfacing == EnumFacing.DOWN || enumfacing == BlockHopper.getFacing(tileEntity.getBlockMetadata()).getOpposite())
-                                && tileEntity instanceof ILazyTileEntity) {
-                            ((ILazyTileEntity) tileEntity).wakeUp();
-                        }
-                    }
-                    catch (NullPointerException e){
-                        Messenger.print_server_message(worldIn.getMinecraftServer(), "TileEntity crashed, check nearby tile entity.");
+                    if ((enumfacing == EnumFacing.DOWN || enumfacing == BlockHopper.getFacing(tileEntity.getBlockMetadata()).getOpposite())
+                            && tileEntity instanceof ILazyTileEntity) {
+                        ((ILazyTileEntity) tileEntity).wakeUp();
                     }
                 }
             }
