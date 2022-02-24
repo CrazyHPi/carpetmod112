@@ -9,7 +9,19 @@
  public class BlockShulkerBox extends BlockContainer
  {
      public static final PropertyEnum<EnumFacing> field_190957_a = PropertyDirection.func_177714_a("facing");
-@@ -176,7 +178,7 @@
+@@ -99,6 +101,11 @@
+                     flag = true;
+                 }
+ 
++                //creativeOpenContainerNoCheck
++                if (CarpetSettings.creativeOpenContainerNoCheck && p_180639_4_.func_184812_l_()) {
++                    flag = true;
++                }
++
+                 if (flag)
+                 {
+                     p_180639_4_.func_71029_a(StatList.field_191272_ae);
+@@ -176,7 +183,7 @@
                  NBTTagCompound nbttagcompound = new NBTTagCompound();
                  NBTTagCompound nbttagcompound1 = new NBTTagCompound();
                  nbttagcompound.func_74782_a("BlockEntityTag", ((TileEntityShulkerBox)tileentity).func_190580_f(nbttagcompound1));

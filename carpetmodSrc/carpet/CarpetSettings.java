@@ -66,7 +66,7 @@ public class CarpetSettings
         return false;
     }
 
-    @Rule(desc = "Dsiable creative mode item drop cooldown", category = {CREATIVE, AZ})
+    @Rule(desc = "Disable creative mode item drop cooldown", category = {CREATIVE, AZ})
     public static boolean antiSpamDisabled = false;
 
     @Rule(desc = "Hopper counter's hopper has no cooldown", category = {CREATIVE, AZ})
@@ -74,6 +74,9 @@ public class CarpetSettings
 
     @Rule(desc = "fix null or wrong tile entity crash", category = {AZ, CREATIVE, FIX})
     public static boolean invalidTileEntityCrashFix = false;
+
+    @Rule(desc = "Creative player can open chest and shulker box regardless when its blocked", category = {AZ, CREATIVE})
+    public static boolean creativeOpenContainerNoCheck = false;
 
     //AZ commands
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
