@@ -62,5 +62,6 @@ public class CarpetCommands {
         handler.registerCommand(new CommandOverworld());
         handler.registerCommand(new CommandNether());
         handler.registerCommand(new CommandEd());
+        handler.registerCommand(new CommandXpCounter());
     }
 }
