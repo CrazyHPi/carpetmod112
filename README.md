@@ -1,9 +1,9 @@
 # Carpet Mod
 Yes.
 
-improved iron farm stuff(village marks and some commands) thanks to Vales.
+improved iron farm stuff(village markers and some commands) thanks to Vales.
 
-add some commands.
+add some features and commands, see [here](https://github.com/CrazyHPi/carpetmod112/blob/staging/docs/Features.md)
 
 ## Getting Started
 ### Setting up your sources
