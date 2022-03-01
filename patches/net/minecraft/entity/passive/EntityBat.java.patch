@@ -1,6 +1,15 @@
 --- ../src-base/minecraft/net/minecraft/entity/passive/EntityBat.java
 +++ ../src-work/minecraft/net/minecraft/entity/passive/EntityBat.java
-@@ -26,6 +26,9 @@
+@@ -2,6 +2,8 @@
+ 
+ import java.util.Calendar;
+ import javax.annotation.Nullable;
++
++import carpet.CarpetSettings;
+ import net.minecraft.block.state.IBlockState;
+ import net.minecraft.entity.Entity;
+ import net.minecraft.entity.EntityLiving;
+@@ -26,6 +28,9 @@
      private static final DataParameter<Byte> field_184660_a = EntityDataManager.<Byte>func_187226_a(EntityBat.class, DataSerializers.field_187191_a);
      private BlockPos field_82237_a;
  
@@ -10,3 +19,15 @@
      public EntityBat(World p_i1680_1_)
      {
          super(p_i1680_1_);
+@@ -231,6 +236,11 @@
+ 
+     public boolean func_70601_bi()
+     {
++        //disableBatSpawning
++        if (CarpetSettings.disableBatSpawning){
++            return false;
++        }
++
+         BlockPos blockpos = new BlockPos(this.field_70165_t, this.func_174813_aQ().field_72338_b, this.field_70161_v);
+ 
+         if (blockpos.func_177956_o() >= this.field_70170_p.func_181545_F())
