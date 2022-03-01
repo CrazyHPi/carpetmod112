@@ -3,6 +3,7 @@ package carpet.utils;
 import carpet.helpers.GolemCounter;
 import carpet.helpers.HopperCounter;
 import carpet.helpers.TickSpeed;
+import carpet.helpers.XpCounter;
 import carpet.logging.LoggerRegistry;
 import carpet.logging.logHelpers.PacketCounter;
 import carpet.CarpetSettings;
@@ -72,6 +73,9 @@ public class HUDController
 
         if (LoggerRegistry.__golems)
             log_golems(server);
+
+        if (LoggerRegistry.__xp)
+            log_xp(server);
 
         for (EntityPlayer player: player_huds.keySet())
         {
@@ -216,5 +220,10 @@ public class HUDController
         GolemCounter counter = GolemCounter.counter;
         LoggerRegistry.getLogger("golems").log(() ->
                 counter.format(server, false, true, true), "GOLEMS", counter.getGolems());
+    }
+
+    private static void log_xp(MinecraftServer server) {
+        XpCounter xpCounter = XpCounter.armorStandCounter;
+        LoggerRegistry.getLogger("xp").log(() -> xpCounter.format(server, false, true));
     }
 }

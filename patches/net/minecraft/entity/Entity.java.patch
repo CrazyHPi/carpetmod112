@@ -8,7 +8,15 @@
  import com.google.common.collect.Iterables;
  import com.google.common.collect.Lists;
  import com.google.common.collect.Sets;
-@@ -81,6 +83,10 @@
+@@ -30,6 +32,7 @@
+ import net.minecraft.enchantment.EnchantmentHelper;
+ import net.minecraft.enchantment.EnchantmentProtection;
+ import net.minecraft.entity.effect.EntityLightningBolt;
++import net.minecraft.entity.item.EntityArmorStand;
+ import net.minecraft.entity.item.EntityBoat;
+ import net.minecraft.entity.item.EntityItem;
+ import net.minecraft.entity.player.EntityPlayer;
+@@ -81,6 +84,10 @@
  import org.apache.logging.log4j.LogManager;
  import org.apache.logging.log4j.Logger;
  
@@ -19,7 +27,7 @@
  public abstract class Entity implements ICommandSender
  {
      private static final Logger field_184243_a = LogManager.getLogger();
-@@ -136,7 +142,7 @@
+@@ -136,7 +143,7 @@
      private int field_190534_ay;
      protected boolean field_70171_ac;
      public int field_70172_ad;
@@ -28,7 +36,7 @@
      protected boolean field_70178_ae;
      protected EntityDataManager field_70180_af;
      protected static final DataParameter<Byte> field_184240_ax = EntityDataManager.<Byte>func_187226_a(Entity.class, DataSerializers.field_187191_a);
-@@ -168,6 +174,9 @@
+@@ -168,6 +175,9 @@
      private final double[] field_191505_aI;
      private long field_191506_aJ;
  
@@ -38,7 +46,7 @@
      public Entity(World p_i1582_1_)
      {
          this.field_145783_c = field_70152_a++;
-@@ -278,6 +287,14 @@
+@@ -278,6 +288,14 @@
      {
          if (p_70105_1_ != this.field_70130_N || p_70105_2_ != this.field_70131_O)
          {
@@ -53,7 +61,7 @@
              float f = this.field_70130_N;
              this.field_70130_N = p_70105_1_;
              this.field_70131_O = p_70105_2_;
-@@ -299,7 +316,8 @@
+@@ -299,7 +317,8 @@
          }
      }
  
@@ -63,7 +71,7 @@
      {
          this.field_70177_z = p_70101_1_ % 360.0F;
          this.field_70125_A = p_70101_2_ % 360.0F;
-@@ -508,6 +526,12 @@
+@@ -508,6 +527,12 @@
  
      public void func_70091_d(MoverType p_70091_1_, double p_70091_2_, double p_70091_4_, double p_70091_6_)
      {
@@ -76,7 +84,7 @@
          if (this.field_70145_X)
          {
              this.func_174826_a(this.func_174813_aQ().func_72317_d(p_70091_2_, p_70091_4_, p_70091_6_));
-@@ -654,12 +678,28 @@
+@@ -654,12 +679,28 @@
                  }
              }
  
@@ -106,7 +114,7 @@
  
                  for (int l = list1.size(); k < l; ++k)
                  {
-@@ -672,6 +712,9 @@
+@@ -672,6 +713,9 @@
              if (p_70091_2_ != 0.0D)
              {
                  int j5 = 0;
@@ -116,7 +124,7 @@
  
                  for (int l5 = list1.size(); j5 < l5; ++j5)
                  {
-@@ -687,6 +730,9 @@
+@@ -687,6 +731,9 @@
              if (p_70091_6_ != 0.0D)
              {
                  int k5 = 0;
@@ -126,7 +134,7 @@
  
                  for (int i6 = list1.size(); k5 < i6; ++k5)
                  {
-@@ -1140,6 +1186,8 @@
+@@ -1140,6 +1187,8 @@
  
      public boolean func_70072_I()
      {
@@ -135,7 +143,7 @@
          if (this.func_184187_bx() instanceof EntityBoat)
          {
              this.field_70171_ac = false;
-@@ -1159,6 +1207,7 @@
+@@ -1159,6 +1208,7 @@
          {
              this.field_70171_ac = false;
          }
@@ -143,7 +151,19 @@
  
          return this.field_70171_ac;
      }
-@@ -1533,6 +1582,9 @@
+@@ -1386,6 +1436,11 @@
+     {
+     }
+ 
++    //xpCounter
++    public void onCollideWithArmorStand(EntityArmorStand entityIn) {
++
++    }
++
+     public void func_70108_f(Entity p_70108_1_)
+     {
+         if (!this.func_184223_x(p_70108_1_))
+@@ -1533,6 +1588,9 @@
  
          if (!this.field_70128_L && s != null && !this.func_184218_aH())
          {
@@ -153,7 +173,7 @@
              p_70039_1_.func_74778_a("id", s);
              this.func_189511_e(p_70039_1_);
              return true;
-@@ -1543,6 +1595,19 @@
+@@ -1543,6 +1601,19 @@
          }
      }
  
@@ -173,7 +193,7 @@
      public static void func_190533_a(DataFixer p_190533_0_)
      {
          p_190533_0_.func_188258_a(FixTypes.ENTITY, new IDataWalker()
-@@ -1619,6 +1684,11 @@
+@@ -1619,6 +1690,11 @@
                  p_189511_1_.func_74782_a("Tags", nbttaglist);
              }
  
@@ -185,7 +205,7 @@
              this.func_70014_b(p_189511_1_);
  
              if (this.func_184207_aI())
-@@ -1663,19 +1733,19 @@
+@@ -1663,19 +1739,19 @@
              this.field_70181_x = nbttaglist2.func_150309_d(1);
              this.field_70179_y = nbttaglist2.func_150309_d(2);
  
@@ -216,7 +236,7 @@
              }
  
              this.field_70165_t = nbttaglist.func_150309_d(0);
-@@ -1744,6 +1814,17 @@
+@@ -1744,6 +1820,17 @@
              {
                  this.func_70107_b(this.field_70165_t, this.field_70163_u, this.field_70161_v);
              }
@@ -234,7 +254,7 @@
          }
          catch (Throwable throwable)
          {
-@@ -1908,7 +1989,12 @@
+@@ -1908,7 +1995,12 @@
  
      public double func_70042_X()
      {
@@ -247,7 +267,7 @@
      }
  
      public boolean func_184220_m(Entity p_184220_1_)
-@@ -1966,6 +2052,18 @@
+@@ -1966,6 +2058,18 @@
          }
      }
  
@@ -266,7 +286,7 @@
      protected void func_184200_o(Entity p_184200_1_)
      {
          if (p_184200_1_.func_184187_bx() != this)
-@@ -2398,7 +2496,10 @@
+@@ -2398,7 +2502,10 @@
                  float f = this.field_70177_z;
                  this.func_70012_b(d0, this.field_70163_u, d1, 90.0F, 0.0F);
                  Teleporter teleporter = worldserver1.func_85176_s();
@@ -277,7 +297,7 @@
                  blockpos = new BlockPos(this);
              }
  
-@@ -2578,6 +2679,10 @@
+@@ -2578,6 +2685,10 @@
  
      public EnumFacing func_174811_aO()
      {
@@ -288,7 +308,7 @@
          return EnumFacing.func_176731_b(MathHelper.func_76128_c((double)(this.field_70177_z * 4.0F / 360.0F) + 0.5D) & 3);
      }
  
-@@ -2886,4 +2991,14 @@
+@@ -2886,4 +2997,14 @@
      {
          return 1;
      }

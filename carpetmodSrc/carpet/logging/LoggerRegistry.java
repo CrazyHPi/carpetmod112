@@ -58,6 +58,7 @@ public class LoggerRegistry
     public static boolean __villagerPos;
     public static boolean __pathfinding;
     public static boolean __villagerQueue;
+    public static boolean __xp;
 
     public static void initLoggers(MinecraftServer server)
     {
@@ -84,6 +85,7 @@ public class LoggerRegistry
         registerLogger("counter",new Logger(server, "counter", "all", new String[]{"all", "cactus","white","orange","magenta","light_blue","yellow","lime","pink","gray","silver","cyan","purple","blue","brown","green","red","black"}, LogHandler.HUD));
         registerLogger("villages", new Logger(server, "villages", "dynamic", new String[]{"dynamic", "overworld", "nether","end"}, LogHandler.HUD));
         registerLogger("golems", new Logger(server, "golems", null, null, LogHandler.HUD));
+        registerLogger("xp", new Logger(server, "xp", "armorstand", new String[]{"player", "armorstand"}, LogHandler.HUD));
 
         registerDebugger("recipes", new Logger(server, "recipes", null, null, LogHandler.CHAT));
         registerDebugger("damageDebug", new Logger(server, "damageDebug", null, null, LogHandler.CHAT));

@@ -78,6 +78,20 @@ public class CarpetSettings
     @Rule(desc = "Creative player can open chest and shulker box regardless when its blocked", category = {AZ, CREATIVE})
     public static boolean creativeOpenContainerNoCheck = false;
 
+    @Rule(desc = "Count xp when sucked by player or armor stand", category = {AZ, COMMANDS}, extra = {
+            "player: count xp sucked by player",
+            "armorstand: count xp sucked by armor stand, and xp will get destroyed",
+            "Use /xpcounter player set <player> to set one player to count",
+            "Use /xpcounter <player|armoestand> reset to reset counter"
+    })
+    public static XpCounter xpCounter = XpCounter.off;
+    public enum XpCounter {
+        off, player, armorstand
+    }
+
+    @Rule(desc = "no more bat spawns, kinda annoying in creative", category = {AZ, CREATIVE})
+    public static boolean disableBatSpawning = false;
+
     //AZ commands
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
     public static boolean commandServer = true;
@@ -99,6 +113,7 @@ public class CarpetSettings
             "why this is not /end? cuz /end is already taken by bungeecord, so /ed will not be intercepted"
     })
     public static boolean commandEd = false;
+
 
     // ===== COMMANDS ===== //
     /*
