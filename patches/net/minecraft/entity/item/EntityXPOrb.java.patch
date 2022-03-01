@@ -95,7 +95,7 @@
              {
                  p_70100_1_.field_71090_bL = 2;
                  p_70100_1_.func_71001_a(this, 1);
-@@ -209,6 +252,22 @@
+@@ -209,6 +252,19 @@
          }
      }
  
@@ -103,14 +103,11 @@
 +    public void onCollideWithArmorStand(EntityArmorStand entityIn) {
 +        if (CarpetSettings.xpCounter == CarpetSettings.XpCounter.armorstand) {
 +            if (!this.field_70170_p.field_72995_K) {
-+                if (this.field_70532_c == 0) {
-+
-+                    if (this.field_70530_e > 0) {
-+                        XpCounter.armorStandCounter.add(this.func_184102_h(), this.field_70530_e);
-+                    }
-+
-+                    this.func_70106_y();
++                if (this.field_70530_e > 0) {
++                    XpCounter.armorStandCounter.add(this.func_184102_h(), this.field_70530_e);
 +                }
++
++                this.func_70106_y();
 +            }
 +        }
 +    }
