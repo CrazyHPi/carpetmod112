@@ -5,6 +5,9 @@ improved iron farm stuff(village markers and some commands) thanks to Vales.
 
 add some features and commands, see [here](https://github.com/CrazyHPi/carpetmod112/blob/staging/docs/Features.md)
 
+some features are ported from [fabric-carpet](https://github.com/gnembon/fabric-carpet) and [Carpet-TIS-Addition
+](https://github.com/TISUnion/Carpet-TIS-Addition)
+
 ## Getting Started
 ### Setting up your sources
 - Clone this repository.

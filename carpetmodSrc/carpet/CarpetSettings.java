@@ -92,6 +92,9 @@ public class CarpetSettings
     @Rule(desc = "no more bat spawns, kinda annoying in creative", category = {AZ, CREATIVE})
     public static boolean disableBatSpawning = false;
 
+    @Rule(desc = "Hopper with wool block on top outputs item infinitely without having its item decreased", category = {AZ, CREATIVE})
+    public static boolean hopperNoItemCost = false;
+
     //AZ commands
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
     public static boolean commandServer = true;
