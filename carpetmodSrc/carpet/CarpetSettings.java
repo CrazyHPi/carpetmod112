@@ -95,6 +95,14 @@ public class CarpetSettings
     @Rule(desc = "Hopper with wool block on top outputs item infinitely without having its item decreased", category = {AZ, CREATIVE})
     public static boolean hopperNoItemCost = false;
 
+    @Rule(desc = "rename bad(length>16) fake player name", category = {AZ}, extra = {
+            "This will rename illegal names to formatted names: BADbot_(int)",
+            "e.g: BADbot_0, BADbot_1, BADbot_2, etc. ",
+            "This only mean to trigger when bot.conf file corrupted somehow and saved player names get rekted"
+    })
+    public static boolean renameFakePlayer = false;
+    public static int renameFakePlayerCounter = 0;
+
     //AZ commands
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
     public static boolean commandServer = true;

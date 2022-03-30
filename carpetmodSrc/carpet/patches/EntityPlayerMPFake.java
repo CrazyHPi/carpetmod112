@@ -107,6 +107,10 @@ public class EntityPlayerMPFake extends EntityPlayerMP
     {
         String[] infos = info.split("/");
         String username = infos[0];
+        if (CarpetSettings.renameFakePlayer && username.length() >= 16) {
+            username = "BADbot_" + CarpetSettings.renameFakePlayerCounter;
+            CarpetSettings.renameFakePlayerCounter++;
+        }
         WorldServer worldIn = server.getWorld(0);
         PlayerInteractionManager interactionManagerIn = new PlayerInteractionManager(worldIn);
         GameProfile gameprofile = server.getPlayerProfileCache().getGameProfileForUsername(username);
