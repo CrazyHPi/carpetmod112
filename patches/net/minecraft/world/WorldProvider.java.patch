@@ -1,0 +1,21 @@
+--- ../src-base/minecraft/net/minecraft/world/WorldProvider.java
++++ ../src-work/minecraft/net/minecraft/world/WorldProvider.java
+@@ -1,6 +1,8 @@
+ package net.minecraft.world;
+ 
+ import javax.annotation.Nullable;
++
++import carpet.CarpetSettings;
+ import net.minecraft.entity.player.EntityPlayerMP;
+ import net.minecraft.init.Biomes;
+ import net.minecraft.init.Blocks;
+@@ -151,6 +153,9 @@
+ 
+     public boolean func_177500_n()
+     {
++        if (CarpetSettings.allowNetherWater) {
++            return false;
++        }
+         return this.field_76575_d;
+     }
+ 

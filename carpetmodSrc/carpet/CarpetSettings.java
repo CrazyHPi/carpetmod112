@@ -100,8 +100,19 @@ public class CarpetSettings
             "e.g: BADbot_0, BADbot_1, BADbot_2, etc. ",
             "This only mean to trigger when bot.conf file corrupted somehow and saved player names get rekted"
     })
-    public static boolean renameFakePlayer = false;
+    public static boolean renameFakePlayer = true;
     public static int renameFakePlayerCounter = 0;
+
+    @Rule(desc = "liquid no longer destory blocks, e.g redstone", category = {CREATIVE, AZ}, extra = {
+            "liquid might weird when it hits block that should be destroyed",
+            "it will just stop there with no more flow action"
+    })
+    public static boolean liquidNoBlockBreaking = false;
+
+    @Rule(desc = "allow water be placed in nether", category = {AZ, CREATIVE})
+    public static boolean allowNetherWater = false;
+
+    //TODO: betterCreativeNoClip
 
     //AZ commands
     @Rule(desc = "implement bungeecord command Tab Completions :/server", category = {AZ, COMMANDS})
