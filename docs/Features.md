@@ -7,9 +7,7 @@
 Change tab logging hud update interval
 
 * Type: `int`
-
 * Default: `20`
-
 * Options: `1`, `5`, `20`, `100`
 
 ## antiSpamDisabled
@@ -17,9 +15,7 @@ Change tab logging hud update interval
 allow you to spew item in creative with no cooldown
 
 * Type: `boolean`
-
 * Default: `false`
-
 * Options: `true`, `false`
 
 ## hopperCountersUnlimitedSpeed
@@ -27,9 +23,7 @@ allow you to spew item in creative with no cooldown
 hopper counter has no cooldown when enabled
 
 * Type: `boolean`
-
 * Default: `false`
-
 * Options: `true`, `false`
 
 ## invalidTileEntityCrashFix
@@ -37,9 +31,7 @@ hopper counter has no cooldown when enabled
 try to fix null or wrong tile entity cause server to crash (<3 worldedit)
 
 * Type: `boolean`
-
 * Default: `false`
-
 * Options: `true`, `false`
 
 ## creativeOpenContainerNoCheck
@@ -47,9 +39,7 @@ try to fix null or wrong tile entity cause server to crash (<3 worldedit)
 Creative player can open chest and shulker box regardless when its blocked
 
 * Type: `boolean`
-
 * Default: `false`
-
 * Options: `true`, `false`
 
 ## xpCounter
@@ -59,11 +49,8 @@ Count xp sucked by armor stand
 TODO: player xp counter
 
 * Type: `String`
-
 * Default: `off`
-
 * Options: `player`, `armorstand`, `off`
-
 * Extra: also enable /xpcounter command to reset or query the counter
 
 ## disableBatSpawning
@@ -71,9 +58,39 @@ TODO: player xp counter
 disable Bat Spawning
 
 * Type: `boolean`
-
 * Default: `false`
+* Options: `true`, `false`
 
+## hopperNoItemCost
+
+hopper with wool on top of it doesn't cost item when transfering item out
+
+* Type: `boolean`
+* Default: `false`
+* Options: `true`, `false`
+
+## renameFakePlayer
+
+rename bad(length>16) fake player name, This only mean to trigger when bot.conf file corrupted somehow and saved player names get rekted
+
+* Type: `boolean`
+* Default: `false`
+* Options: `true`, `false`
+
+## liquidNoBlockBreaking
+
+liquid no longer destory blocks, e.g redstone wire
+
+* Type: `boolean`
+* Default: `false`
+* Options: `true`, `false`
+
+## allowNetherWater
+
+allow water to be placed in nether
+
+* Type: `boolean`
+* Default: `false`
 * Options: `true`, `false`
 
 ## newRule
@@ -81,9 +98,7 @@ disable Bat Spawning
 do sth
 
 * Type: `boolean`
-
 * Default: `false`
-
 * Options: `true`, `false`
 
 # Commands
@@ -91,6 +106,14 @@ do sth
 ## commandServer
 
 bungeecord command tab completions
+
+Related rules:
+
+```java
+String serverList = "112s,112c,112m";
+```
+
+you can define what tab completion will return to you, but this normally won't matter since bungeecord will take over from /server.
 
 ## commandData
 
@@ -118,9 +141,16 @@ same as commandOverworld
 
 same as commandOverworld
 
+## commandSurvivalCarpet
 
-## newCommand
+/survivalcarpet \<rule> \<value>
 
-/newCommand
+allow non op player to toggle some carpet feature, e.g missingTools
 
-do sth
+Related rules:
+
+```java
+String survivalCarpetList = "missingTools";
+```
+
+list of feature that allowed by commandSurvivalCarpet, separate different feature name by comma

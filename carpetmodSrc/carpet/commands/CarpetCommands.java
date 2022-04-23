@@ -49,7 +49,8 @@ public class CarpetCommands {
         handler.registerCommand(new CommandTNT());
         handler.registerCommand(new CommandUnload());
         handler.registerCommand(new CommandUnload13());
-        handler.registerCommand(new CommandUpdateCarpet());
+        //no need for this command
+        //handler.registerCommand(new CommandUpdateCarpet());
         handler.registerCommand(new CommandVillage());
         handler.registerCommand(new CommandWaypoint());
         handler.registerCommand(new CommandZetBlock());
@@ -65,5 +66,6 @@ public class CarpetCommands {
         handler.registerCommand(new CommandNether());
         handler.registerCommand(new CommandEd());
         handler.registerCommand(new CommandXpCounter());
+        handler.registerCommand(new CommandSurvivalCarpet());
     }
 }

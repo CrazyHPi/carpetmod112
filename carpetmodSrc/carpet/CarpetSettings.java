@@ -47,7 +47,7 @@ public class CarpetSettings
     public static boolean locked = false;
 
     // TODO: replace these constants at build time
-    public static final String carpetVersion = "v22_02_10";
+    public static final String carpetVersion = "v22_04_23";
     public static final String minecraftVersion = "1.12.2";
     public static final String mcpMappings = "39-1.12";
 
@@ -109,7 +109,7 @@ public class CarpetSettings
     })
     public static boolean liquidNoBlockBreaking = false;
 
-    @Rule(desc = "allow water be placed in nether", category = {AZ, CREATIVE})
+    @Rule(desc = "allow water to be placed in nether", category = {AZ, CREATIVE})
     public static boolean allowNetherWater = false;
 
     //TODO: betterCreativeNoClip
@@ -135,6 +135,14 @@ public class CarpetSettings
             "why this is not /end? cuz /end is already taken by bungeecord, so /ed will not be intercepted"
     })
     public static boolean commandEd = false;
+
+    @Rule(desc = "give non op players option to toggle specified carpet features", category = {AZ, SURVIVAL})
+    public static boolean commandSurvivalCarpet = false;
+
+    @Rule(desc = "list of feature that allowed by commandSurvivalCarpet", options = "missingTools", category = {AZ, SURVIVAL}, extra = {
+            "separate different feature name by comma"
+    })
+    public static String survivalCarpetList = "missingTools";
 
 
     // ===== COMMANDS ===== //
