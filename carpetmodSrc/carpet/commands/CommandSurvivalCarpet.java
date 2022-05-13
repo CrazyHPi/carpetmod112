@@ -45,8 +45,12 @@ public class CommandSurvivalCarpet extends CommandCarpetBase{
 
         List<String> list = Arrays.asList(CarpetSettings.survivalCarpetList.split(","));
 
-        if (args.length == 1) {
+        if (args.length == 1 && !"list".equalsIgnoreCase(args[0])) {
             throw new WrongUsageException(getUsage(sender));
+        }
+
+        if (args.length == 1 && "list".equalsIgnoreCase(args[0])) {
+            msg(sender, Messenger.m(null, CarpetSettings.survivalCarpetList));
         }
 
         if (args.length == 2 && list.contains(args[0])) {
@@ -55,6 +59,10 @@ public class CommandSurvivalCarpet extends CommandCarpetBase{
                 throw new WrongUsageException(getUsage(sender));
             }
             msg(sender, Messenger.m(null, "w " + args[0] + " now set to: ", "y " + CarpetSettings.get(args[0])));
+        }
+
+        if (args.length == 2 && !list.contains(args[0])) {
+            msg(sender, Messenger.m(null, "r rule " + args[0] + " is not in survivalCarpetList"));
         }
     }
 
@@ -73,7 +81,10 @@ public class CommandSurvivalCarpet extends CommandCarpetBase{
         }
 
         if (args.length == 1) {
-            return getListOfStringsMatchingLastWord(args, CarpetSettings.survivalCarpetList.split(","));
+            String string1 = CarpetSettings.survivalCarpetList;
+            string1 += ",list";
+
+            return getListOfStringsMatchingLastWord(args, string1.split(","));
         }
 
         if (args.length == 2) {

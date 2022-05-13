@@ -1,6 +1,23 @@
 --- ../src-base/minecraft/net/minecraft/entity/player/EntityPlayer.java
 +++ ../src-work/minecraft/net/minecraft/entity/player/EntityPlayer.java
-@@ -91,6 +91,14 @@
+@@ -13,15 +13,7 @@
+ import net.minecraft.block.material.Material;
+ import net.minecraft.block.state.IBlockState;
+ import net.minecraft.enchantment.EnchantmentHelper;
+-import net.minecraft.entity.Entity;
+-import net.minecraft.entity.EntityList;
+-import net.minecraft.entity.EntityLiving;
+-import net.minecraft.entity.EntityLivingBase;
+-import net.minecraft.entity.EnumCreatureAttribute;
+-import net.minecraft.entity.IEntityMultiPart;
+-import net.minecraft.entity.IMerchant;
+-import net.minecraft.entity.MultiPartEntityPart;
+-import net.minecraft.entity.SharedMonsterAttributes;
++import net.minecraft.entity.*;
+ import net.minecraft.entity.ai.attributes.IAttributeInstance;
+ import net.minecraft.entity.item.EntityBoat;
+ import net.minecraft.entity.item.EntityItem;
+@@ -91,6 +83,14 @@
  import net.minecraft.world.World;
  import net.minecraft.world.WorldServer;
  
@@ -15,7 +32,7 @@
  public abstract class EntityPlayer extends EntityLivingBase
  {
      private static final DataParameter<Float> field_184829_a = EntityDataManager.<Float>func_187226_a(EntityPlayer.class, DataSerializers.field_187193_c);
-@@ -139,6 +147,9 @@
+@@ -139,6 +139,9 @@
          return new CooldownTracker();
      }
  
@@ -25,7 +42,19 @@
      public EntityPlayer(World p_i45324_1_, GameProfile p_i45324_2_)
      {
          super(p_i45324_1_);
-@@ -364,6 +375,15 @@
+@@ -174,6 +177,11 @@
+     public void func_70071_h_()
+     {
+         this.field_70145_X = this.func_175149_v();
++        //creative no clip
++        if (CarpetSettings.creativeNoClip && this.func_184812_l_() && this.field_71075_bZ.field_75100_b) {
++            this.field_70145_X = true;
++            this.field_70122_E = false;
++        }
+ 
+         if (this.func_175149_v())
+         {
+@@ -364,6 +372,15 @@
  
      public int func_82145_z()
      {
@@ -41,7 +70,7 @@
          return this.field_71075_bZ.field_75102_a ? 1 : 80;
      }
  
-@@ -530,7 +550,9 @@
+@@ -530,7 +547,9 @@
          this.func_192028_j(this.func_192023_dk());
          this.func_192028_j(this.func_192025_dl());
  
@@ -52,7 +81,7 @@
          {
              this.func_192030_dh();
          }
-@@ -692,7 +714,7 @@
+@@ -692,7 +711,7 @@
              {
                  if (!itemstack.func_190926_b())
                  {
@@ -61,7 +90,7 @@
                  }
  
                  this.func_71029_a(StatList.field_75952_v);
-@@ -908,10 +930,23 @@
+@@ -908,10 +927,23 @@
                      this.func_70999_a(true, true, false);
                  }
  
@@ -86,7 +115,7 @@
                      if (this.field_70170_p.func_175659_aa() == EnumDifficulty.PEACEFUL)
                      {
                          p_70097_2_ = 0.0F;
-@@ -926,6 +961,7 @@
+@@ -926,6 +958,7 @@
                      {
                          p_70097_2_ = p_70097_2_ * 3.0F / 2.0F;
                      }
@@ -94,7 +123,7 @@
                  }
  
                  return p_70097_2_ == 0.0F ? false : super.func_70097_a(p_70097_1_, p_70097_2_);
-@@ -1008,16 +1044,22 @@
+@@ -1008,16 +1041,22 @@
      {
          if (!this.func_180431_b(p_70665_1_))
          {
@@ -117,7 +146,7 @@
                  this.func_70606_j(this.func_110143_aJ() - p_70665_2_);
                  this.func_110142_aN().func_94547_a(p_70665_1_, f1, p_70665_2_);
  
-@@ -1027,6 +1069,12 @@
+@@ -1027,6 +1066,12 @@
                  }
              }
          }
@@ -130,7 +159,7 @@
      }
  
      public void func_175141_a(TileEntitySign p_175141_1_)
-@@ -1227,19 +1275,33 @@
+@@ -1227,19 +1272,33 @@
                          {
                              float f3 = 1.0F + EnchantmentHelper.func_191527_a(this) * f;
  
@@ -164,7 +193,7 @@
                          if (p_71059_1_ instanceof EntityPlayerMP && p_71059_1_.field_70133_I)
                          {
                              ((EntityPlayerMP)p_71059_1_).field_71135_a.func_147359_a(new SPacketEntityVelocity(p_71059_1_));
-@@ -1333,6 +1395,13 @@
+@@ -1333,6 +1392,13 @@
                      }
                  }
              }
@@ -178,7 +207,7 @@
          }
      }
  
-@@ -1911,6 +1980,10 @@
+@@ -1911,6 +1977,10 @@
          {
              return false;
          }
@@ -189,7 +218,7 @@
          else
          {
              BlockPos blockpos = p_175151_1_.func_177972_a(p_175151_2_.func_176734_d());
-@@ -2044,6 +2117,20 @@
+@@ -2044,6 +2114,20 @@
          this.func_192031_i(new NBTTagCompound());
      }
  
@@ -210,7 +239,7 @@
      private void func_192026_k(@Nullable NBTTagCompound p_192026_1_)
      {
          if (!this.field_70170_p.field_72995_K && !p_192026_1_.func_82582_d())
-@@ -2307,6 +2394,13 @@
+@@ -2307,6 +2391,13 @@
      {
          return this.field_71075_bZ.field_75098_d && this.func_70003_b(2, "");
      }
@@ -224,7 +253,7 @@
  
      public static enum EnumChatVisibility
      {
-@@ -2333,11 +2427,11 @@
+@@ -2333,11 +2424,11 @@
          }
      }
  
@@ -238,3 +267,16 @@
              {
                  this.field_192387_a = p_i47461_1_;
              }
+@@ -2357,4 +2448,12 @@
+         OTHER_PROBLEM,
+         NOT_SAFE;
+     }
++
++    //Carpet Mod: better creative no clip logic
++    @Override
++    public void func_70091_d(MoverType type, double x, double y, double z) {
++        if (type == MoverType.SELF || !(CarpetSettings.creativeNoClip && this.func_184812_l_() && this.field_71075_bZ.field_75100_b)) {
++            super.func_70091_d(type, x, y, z);
++        }
++    }
+ }
